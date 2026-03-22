@@ -1,0 +1,65 @@
+name: Refresh Devfolio Data
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Fetch latest data
+        run: |
+          node -e "
+          async function main() {
+            const projects = [];
+            let page = 1;
+            while (true) {
+              const res = await fetch('https://synthesis.devfolio.co/projects?page=' + page + '&limit=50');
+              const data = await res.json();
+              projects.push(...data.data);
+              if (page >= data.pagination.totalPages) break;
+              page++;
+            }
+
+            const tracks = [];
+            page = 1;
+            while (true) {
+              const res = await fetch('https://synthesis.devfolio.co/catalog?page=' + page + '&limit=50');
+              const data = await res.json();
+              tracks.push(...data.items);
+              if (!data.pagination.hasNextPage) break;
+              page++;
+            }
+
+            const fs = require('fs');
+            fs.writeFileSync('src/data/projects.json', JSON.stringify(projects, null, 2));
+            fs.writeFileSync('src/data/tracks.json', JSON.stringify(tracks, null, 2));
+            console.log('Saved ' + projects.length + ' projects and ' + tracks.length + ' tracks');
+          }
+          main();
+          "
+
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet src/data/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/
+          PROJECTS=$(python3 -c "import json; print(len(json.load(open('src/data/projects.json'))))")
+          TRACKS=$(python3 -c "import json; print(len(json.load(open('src/data/tracks.json'))))")
+          git commit -m "data: refresh ${PROJECTS} projects, ${TRACKS} tracks"
+          git push

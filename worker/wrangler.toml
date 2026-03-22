@@ -1,0 +1,6 @@
+name = "synthesis-devfolio-proxy"
+main = "index.ts"
+compatibility_date = "2025-01-01"
+
+[observability]
+enabled = true
