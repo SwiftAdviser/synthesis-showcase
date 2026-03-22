@@ -27,6 +27,17 @@ export function Header() {
             <Link href="/stats" className="hover:text-text-primary transition-colors">
               Stats
             </Link>
+            <Link href="/preview" className="hover:text-text-primary transition-colors">
+              Preview
+            </Link>
+            <a
+              href="https://synthesis.devfolio.co/submission/skill.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 transition-colors font-medium"
+            >
+              Submit
+            </a>
             <a
               href="https://mandate.md"
               target="_blank"
