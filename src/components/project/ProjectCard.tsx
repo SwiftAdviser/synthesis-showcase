@@ -102,15 +102,6 @@ export function ProjectCard({ project, index = 0 }: Props) {
         </div>
       </div>
 
-      {/* Commit activity bar */}
-      {commitCount > 0 && (
-        <div className="h-0.5 bg-accent/10 mt-3 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-accent/60 rounded-full transition-all"
-            style={{ width: `${commitPercent}%` }}
-          />
-        </div>
-      )}
     </Link>
   );
 }
