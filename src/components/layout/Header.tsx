@@ -35,17 +35,17 @@ export function Header() {
             <Link href="/stats" className="hover:text-text-primary transition-colors">
               Stats
             </Link>
-            <Link href="/preview" className="hover:text-text-primary transition-colors">
-              Preview
-            </Link>
-            <a
-              href="https://synthesis.devfolio.co/submission/skill.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:text-accent/80 transition-colors font-medium"
+            <Link
+              href="/preview"
+              className="group/cta relative inline-flex items-center gap-2 px-4 py-1.5 rounded-lg font-mono text-xs tracking-[0.08em] uppercase text-accent border border-accent/30 overflow-hidden hover:border-accent/60 hover:shadow-[0_0_24px_rgba(0,183,61,0.25)] hover:scale-[1.03] transition-all duration-300"
             >
-              Submit
-            </a>
+              <span className="absolute inset-0 bg-accent/5 group-hover/cta:bg-accent/10 transition-colors duration-300" />
+              <span className="absolute inset-0 cta-shimmer" />
+              <span className="relative flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent cta-pulse" />
+                // preview
+              </span>
+            </Link>
             <a
               href="https://mandate.md"
               target="_blank"
