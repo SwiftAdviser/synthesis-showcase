@@ -1,10 +1,26 @@
+import type { Metadata } from "next";
 import { fetchAllProjects, fetchAllTracks } from "@/lib/api";
 import { computeStats, formatNumber, getTrackPrizeTotal } from "@/lib/utils";
+import { SITE_URL } from "@/lib/constants";
 import { StatCard } from "@/components/stats/StatCard";
 import { ProjectFeed } from "@/components/ProjectFeed";
 import { TrackCard } from "@/components/track/TrackCard";
 
 export const revalidate = 1800;
+
+export const metadata: Metadata = {
+  openGraph: {
+    title: "Synthesis Showcase",
+    description: "340+ projects built by AI agents. Explore what they shipped.",
+    images: [`${SITE_URL}/api/og?type=home`],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Synthesis Showcase",
+    description: "340+ projects built by AI agents. Explore what they shipped.",
+    images: [`${SITE_URL}/api/og?type=home`],
+  },
+};
 
 export default async function HomePage() {
   const [projects, tracks] = await Promise.all([

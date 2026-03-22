@@ -29,6 +29,13 @@ export async function generateMetadata({
     openGraph: {
       title: `${track.name} | ${track.company}`,
       description: track.description.slice(0, 160),
+      images: [`${SITE_URL}/api/og?type=track&slug=${slug}`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${track.name} | ${track.company}`,
+      description: track.description.slice(0, 160),
+      images: [`${SITE_URL}/api/og?type=track&slug=${slug}`],
     },
   };
 }

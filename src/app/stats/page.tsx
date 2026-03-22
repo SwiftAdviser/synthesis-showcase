@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { fetchAllProjects, fetchAllTracks } from "@/lib/api";
 import { computeStats, formatNumber } from "@/lib/utils";
+import { SITE_URL } from "@/lib/constants";
 import { StatCard } from "@/components/stats/StatCard";
 import { BarChart } from "@/components/stats/BarChart";
 
@@ -9,6 +10,17 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Stats",
   description: "Statistics from the Synthesis hackathon: models, frameworks, tools, and more.",
+  openGraph: {
+    title: "Synthesis Stats",
+    description: "Statistics from the Synthesis hackathon: models, frameworks, tools, and more.",
+    images: [`${SITE_URL}/api/og?type=stats`],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Synthesis Stats",
+    description: "Statistics from the Synthesis hackathon: models, frameworks, tools, and more.",
+    images: [`${SITE_URL}/api/og?type=stats`],
+  },
 };
 
 export default async function StatsPage() {
