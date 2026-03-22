@@ -87,7 +87,7 @@ export function ReadinessChecklist({ checklist, defaultOpen = false }: Props) {
                 {item.status === "pass" ? "\u2713" : item.status === "fail" ? "\u2717" : "\u25CB"}
               </span>
               <span className={`text-[11px] leading-snug ${
-                item.status === "pass" ? "text-text-dim" : "text-text-secondary"
+                item.status === "pass" ? "text-text-secondary" : "text-text-primary"
               }`}>
                 {item.label}
               </span>
