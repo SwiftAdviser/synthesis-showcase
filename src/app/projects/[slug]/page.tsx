@@ -10,6 +10,7 @@ import { BuildTimeline } from "@/components/project/BuildTimeline";
 import { TeamSpotlight } from "@/components/project/TeamSpotlight";
 import { ProjectLinks } from "@/components/project/ProjectLinks";
 import { MandateCTA } from "@/components/mandate/MandateCTA";
+import { SecurityPitch } from "@/components/mandate/SecurityPitch";
 import { ReadinessChecklist } from "@/components/project/ReadinessChecklist";
 import { getReadinessChecklist } from "@/lib/preview-utils";
 
@@ -112,7 +113,8 @@ export default async function ProjectPage({
 
         {/* Sidebar */}
         <div className="w-full lg:w-80 shrink-0 space-y-4">
-          {/* CTA */}
+          {/* Security pitch + CTA */}
+          <SecurityPitch />
           <MandateCTA trackNames={project.tracks.map((t) => t.name)} />
 
           {/* Readiness Checklist */}
