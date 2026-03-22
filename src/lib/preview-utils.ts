@@ -61,21 +61,6 @@ export function jsonToProject(raw: unknown): Project {
   };
 }
 
-export function encodePreviewData(json: string): string {
-  try {
-    return btoa(encodeURIComponent(json));
-  } catch {
-    return "";
-  }
-}
-
-export function decodePreviewData(encoded: string): string {
-  try {
-    return decodeURIComponent(atob(encoded));
-  } catch {
-    return "";
-  }
-}
 
 export function getReadinessChecklist(project: Project): ChecklistItem[] {
   const items: ChecklistItem[] = [];
