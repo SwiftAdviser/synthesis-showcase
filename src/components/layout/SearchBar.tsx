@@ -116,8 +116,18 @@ export function SearchBar({ open, onClose }: Props) {
           )}
 
           {query && results.length === 0 && (
-            <div className="px-4 py-8 text-center text-sm text-text-dim">
-              No projects found for "{query}"
+            <div className="px-4 py-8 text-center">
+              <p className="text-sm text-text-dim">
+                No projects found for &ldquo;{query}&rdquo;
+              </p>
+              <Link
+                href="/preview"
+                onClick={onClose}
+                className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg bg-accent/10 text-accent text-xs font-medium border border-accent/20 hover:bg-accent/20 transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Preview before you ship
+              </Link>
             </div>
           )}
         </div>
