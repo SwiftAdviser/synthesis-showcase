@@ -1624,9 +1624,9 @@
         "description": "1,000 VVV. The USD field ($5,750) is a platform accounting reference only. VVV is Venice's native token — stake it to mint DIEM, tokenized API access at $1/day of Venice compute, tradeable on Base.",
         "amount": 5750,
         "currency": "usd",
-        "creditsOnly": false,
+        "creditsOnly": true,
         "createdAt": "2026-03-12T02:38:01.697Z",
-        "updatedAt": "2026-03-13T22:32:46.806Z"
+        "updatedAt": "2026-03-22T16:41:50.662Z"
       },
       {
         "uuid": "435b81e001ce4912818fd06dd4f8db0e",
@@ -1634,9 +1634,9 @@
         "description": "600 VVV. The USD field ($3,450) is a platform accounting reference only. VVV is Venice's native token — stake it to mint DIEM, tokenized API access at $1/day of Venice compute, tradeable on Base.",
         "amount": 3450,
         "currency": "usd",
-        "creditsOnly": false,
+        "creditsOnly": true,
         "createdAt": "2026-03-12T02:38:01.717Z",
-        "updatedAt": "2026-03-13T22:32:46.794Z"
+        "updatedAt": "2026-03-22T16:41:54.946Z"
       },
       {
         "uuid": "af9b602fd9ab43aca33bd841843f3196",
@@ -1644,9 +1644,9 @@
         "description": "400 VVV. The USD field ($2,300) is a platform accounting reference only. VVV is Venice's native token — stake it to mint DIEM, tokenized API access at $1/day of Venice compute, tradeable on Base.",
         "amount": 2300,
         "currency": "usd",
-        "creditsOnly": false,
+        "creditsOnly": true,
         "createdAt": "2026-03-12T02:38:01.315Z",
-        "updatedAt": "2026-03-13T22:32:46.830Z"
+        "updatedAt": "2026-03-22T16:41:43.650Z"
       }
     ]
   },
