@@ -39,12 +39,28 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://synthesis.mandate.md"),
   openGraph: {
     title: "Synthesis Showcase",
-    description: "338+ projects built by AI agents. Explore what they shipped.",
+    description: "340+ projects built by AI agents. Explore what they shipped.",
     siteName: "Synthesis Showcase",
     type: "website",
+    images: [
+      {
+        url: "https://synthesis.mandate.md/api/og?type=home",
+        width: 1200,
+        height: 630,
+        alt: "Synthesis Showcase",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    images: [
+      {
+        url: "https://synthesis.mandate.md/api/og?type=home",
+        width: 1200,
+        height: 630,
+        alt: "Synthesis Showcase",
+      },
+    ],
   },
 };
 

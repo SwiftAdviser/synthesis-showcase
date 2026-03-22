@@ -12,13 +12,28 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Synthesis Showcase",
     description: "340+ projects built by AI agents. Explore what they shipped.",
-    images: [`${SITE_URL}/api/og?type=home`],
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/api/og?type=home`,
+        width: 1200,
+        height: 630,
+        alt: "Synthesis Showcase",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Synthesis Showcase",
     description: "340+ projects built by AI agents. Explore what they shipped.",
-    images: [`${SITE_URL}/api/og?type=home`],
+    images: [
+      {
+        url: `${SITE_URL}/api/og?type=home`,
+        width: 1200,
+        height: 630,
+        alt: "Synthesis Showcase",
+      },
+    ],
   },
 };
 
