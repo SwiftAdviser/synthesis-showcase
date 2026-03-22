@@ -20,6 +20,7 @@ export function PreviewHashPage({ hash }: Props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [checklistOpen, setChecklistOpen] = useState(true);
+  const [sharecopied, setSharecopied] = useState(false);
 
   useEffect(() => {
     fetch(`/api/preview/${hash}`)
@@ -65,7 +66,6 @@ export function PreviewHashPage({ hash }: Props) {
     );
   }
 
-  const [sharecopied, setSharecopied] = useState(false);
   const checklist = getReadinessChecklist(project);
   const requiredPassed = checklist.filter(i => i.status === "fail").length === 0;
   const missedItems = checklist.filter(i => i.status !== "pass");
