@@ -42,7 +42,7 @@ export function ProjectCard({ project, index = 0 }: Props) {
               {p.name.charAt(0).toUpperCase()}
             </span>
           )}
-          {p.videoURL && (
+          {p.videoURL && !p.coverImageURL && (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-6 h-6 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="white" className="ml-0.5">

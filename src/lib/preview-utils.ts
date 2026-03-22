@@ -132,7 +132,6 @@ export function getReadinessChecklist(project: Project): ChecklistItem[] {
 /**
  * Compute a 1-5 star readiness score.
  * Required: 50%, Visuals (video + images): 30%, Recommended: 20%.
- * Visuals weighted heavily because judges need them to evaluate.
  */
 export function getReadinessScore(project: Project): number {
   const checklist = getReadinessChecklist(project);
@@ -142,19 +141,16 @@ export function getReadinessScore(project: Project): number {
   const requiredPassed = required.filter((c) => c.status === "pass").length;
   const recommendedPassed = recommended.filter((c) => c.status === "pass").length;
 
-  const hasVideo = !!project.videoURL;
-  const hasImages = !!(project.coverImageURL || project.pictures);
-  const visualScore = (hasVideo ? 0.5 : 0) + (hasImages ? 0.5 : 0);
+  const vScore = (project.videoURL ? 0.5 : 0) + (project.coverImageURL || project.pictures ? 0.5 : 0);
 
   const score =
     (requiredPassed / required.length) * 0.5 +
-    visualScore * 0.3 +
+    vScore * 0.3 +
     (recommendedPassed / Math.max(1, recommended.length)) * 0.2;
 
   return Math.max(1, Math.round(score * 5));
 }
 
-/** Check if project has any visual content. */
 export function hasVisuals(project: Project): boolean {
   return !!(project.videoURL || project.coverImageURL || project.pictures);
 }

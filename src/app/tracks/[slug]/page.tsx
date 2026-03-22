@@ -48,7 +48,7 @@ export default async function TrackPage({
   if (!track) notFound();
 
   const trackProjects = sortProjects(
-    projects.filter((p) => p.tracks.some((t) => t.slug === slug))
+    projects.filter((p: { tracks: { slug: string }[] }) => p.tracks.some((t) => t.slug === slug))
   );
   const prizeTotal = getTrackPrizeTotal(track);
 
