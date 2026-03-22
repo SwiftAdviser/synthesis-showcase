@@ -10,6 +10,8 @@ interface Props {
   index?: number;
 }
 
+const PROMISING_SLUG = "mandate-approve-intent-not-just-transactions-c4cc";
+
 export function ProjectCard({ project, index = 0 }: Props) {
   const p = project;
   const commitCount = p.submissionMetadata.commitCount ?? 0;
@@ -17,13 +19,23 @@ export function ProjectCard({ project, index = 0 }: Props) {
   const score = getReadinessScore(p);
   const ytId = p.videoURL ? getVideoId(p.videoURL) : null;
   const thumbUrl = p.coverImageURL || (ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : null);
+  const isPromising = p.slug === PROMISING_SLUG;
 
   return (
     <Link
       href={`/projects/${p.slug}`}
-      className="group block glassmorphic rounded-xl p-4 hover:glow-border transition-all duration-200 hover:-translate-y-0.5 animate-fade-in-up"
+      className={`group block glassmorphic rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 animate-fade-in-up ${
+        isPromising
+          ? "glow-border"
+          : "hover:glow-border"
+      }`}
       style={{ animationDelay: `${index * 50}ms` }}
     >
+      {isPromising && (
+        <span className="inline-block mb-2 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-accent/15 text-accent border border-accent/30">
+          Promising
+        </span>
+      )}
       <div className="flex gap-4">
         {/* Thumbnail */}
         <div
