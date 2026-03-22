@@ -21,6 +21,7 @@ export function Footer() {
                 >
                   Mandate
                 </a>
+                {" "}with ❤️ for agentic economy
               </p>
             </div>
           </div>
@@ -61,7 +62,13 @@ export function Footer() {
           >
             Synthesis Hackathon
           </a>{" "}
-          on Devfolio.
+          on Devfolio. For inquiries:{" "}
+          <a
+            href="mailto:alan@mandate.md"
+            className="text-text-secondary hover:text-text-primary transition-colors"
+          >
+            alan@mandate.md
+          </a>
         </div>
       </div>
     </footer>
