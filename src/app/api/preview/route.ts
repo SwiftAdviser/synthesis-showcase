@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
   const hash = crypto.randomUUID().replace(/-/g, "").slice(0, 12);
   const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
-  storePreview(hash, project);
+  await storePreview(hash, project, ip);
 
   return NextResponse.json({
     url: `${SITE_URL}/preview/${hash}`,

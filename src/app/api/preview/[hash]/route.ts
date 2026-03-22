@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: Promise<{ hash: string }> }
 ) {
   const { hash } = await params;
-  const project = getPreview(hash);
+  const project = await getPreview(hash);
 
   if (!project) {
     return NextResponse.json(
