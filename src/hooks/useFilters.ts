@@ -17,6 +17,7 @@ export function useFilters(): [FilterState, (update: Partial<FilterState>) => vo
       harnesses: searchParams.getAll("harness"),
       search: searchParams.get("q") ?? "",
       sort: (searchParams.get("sort") as SortOption) ?? "newest",
+      minScore: Number(searchParams.get("score")) || 0,
     }),
     [searchParams]
   );
@@ -26,12 +27,13 @@ export function useFilters(): [FilterState, (update: Partial<FilterState>) => vo
       const next = { ...filters, ...update };
       const params = new URLSearchParams();
 
-      for (const t of next.tracks) params.append("track", t);
-      for (const m of next.models) params.append("model", m);
-      for (const f of next.frameworks) params.append("framework", f);
-      for (const h of next.harnesses) params.append("harness", h);
+      for (const t of next.tracks ?? []) params.append("track", t);
+      for (const m of next.models ?? []) params.append("model", m);
+      for (const f of next.frameworks ?? []) params.append("framework", f);
+      for (const h of next.harnesses ?? []) params.append("harness", h);
       if (next.search) params.set("q", next.search);
       if (next.sort !== "newest") params.set("sort", next.sort);
+      if (next.minScore && next.minScore > 0) params.set("score", String(next.minScore));
 
       const qs = params.toString();
       router.push(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
