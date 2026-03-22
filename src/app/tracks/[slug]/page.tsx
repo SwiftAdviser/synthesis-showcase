@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/constants";
 import { PrizeTable } from "@/components/track/PrizeTable";
 import { ProjectCard } from "@/components/project/ProjectCard";
 
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export async function generateStaticParams() {
   const tracks = await fetchAllTracks();

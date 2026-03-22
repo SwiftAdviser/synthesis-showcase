@@ -4,7 +4,7 @@ import { StatCard } from "@/components/stats/StatCard";
 import { ProjectFeed } from "@/components/ProjectFeed";
 import { TrackCard } from "@/components/track/TrackCard";
 
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export default async function HomePage() {
   const [projects, tracks] = await Promise.all([

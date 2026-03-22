@@ -4,7 +4,7 @@ import { computeStats, formatNumber } from "@/lib/utils";
 import { StatCard } from "@/components/stats/StatCard";
 import { BarChart } from "@/components/stats/BarChart";
 
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Stats",

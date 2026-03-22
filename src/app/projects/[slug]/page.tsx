@@ -11,7 +11,7 @@ import { TeamSpotlight } from "@/components/project/TeamSpotlight";
 import { ProjectLinks } from "@/components/project/ProjectLinks";
 import { MandateCTA } from "@/components/mandate/MandateCTA";
 
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export async function generateStaticParams() {
   const projects = await fetchAllProjects();
