@@ -95,17 +95,20 @@ export function getReadinessChecklist(project: Project): ChecklistItem[] {
     label: "Agent harness",
     status: meta.agentHarness ? "pass" : "fail",
   });
+  items.push({
+    label: "Demo video",
+    status: project.videoURL ? "pass" : "fail",
+  });
+  items.push({
+    label: "Screenshots or cover image",
+    status: project.coverImageURL || project.pictures ? "pass" : "fail",
+  });
 
   // Recommended
   items.push({
     label: "Problem statement",
     status: project.problemStatement ? "pass" : "warn",
     detail: "Recommended",
-  });
-  items.push({
-    label: "Demo video URL",
-    status: project.videoURL ? "pass" : "warn",
-    detail: "Strongly recommended",
   });
   items.push({
     label: "Live deployment URL",
@@ -128,7 +131,7 @@ export function getReadinessChecklist(project: Project): ChecklistItem[] {
 
 /**
  * Compute a 1-5 star readiness score.
- * Required items (7) are worth more than recommended (5).
+ * Required items (9) are worth more than recommended (4).
  * Required: 70% weight, Recommended: 30% weight.
  */
 export function getReadinessScore(project: Project): number {
