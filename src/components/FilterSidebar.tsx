@@ -84,11 +84,13 @@ export function FilterSidebar({
     onFilterChange({ [key]: next });
   };
 
+  const minScore = filters.minScore ?? 0;
   const hasFilters =
     filters.tracks.length > 0 ||
     filters.models.length > 0 ||
     filters.frameworks.length > 0 ||
-    filters.harnesses.length > 0;
+    filters.harnesses.length > 0 ||
+    minScore > 0;
 
   return (
     <aside className="w-full lg:w-60 shrink-0">
@@ -105,6 +107,7 @@ export function FilterSidebar({
                   models: [],
                   frameworks: [],
                   harnesses: [],
+                  minScore: 0,
                 })
               }
               className="text-[10px] text-accent hover:underline"
@@ -138,6 +141,27 @@ export function FilterSidebar({
           selected={filters.harnesses}
           onToggle={(v) => toggle("harnesses", v)}
         />
+
+        <div className="pt-3">
+          <h4 className="font-mono text-[10px] uppercase tracking-widest text-text-dim mb-2">
+            Min. Score
+          </h4>
+          <div className="flex items-center gap-1">
+            {[0, 1, 2, 3, 4, 5].map((s) => (
+              <button
+                key={s}
+                onClick={() => onFilterChange({ minScore: minScore === s ? 0 : s })}
+                className={`px-2 py-1 rounded text-[11px] font-mono transition-colors ${
+                  minScore === s
+                    ? "bg-accent text-bg-base"
+                    : "bg-bg-raised text-text-dim hover:text-text-secondary"
+                }`}
+              >
+                {s === 0 ? "All" : `${s}\u2605`}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="pt-3">
           <h4 className="font-mono text-[10px] uppercase tracking-widest text-text-dim mb-2">

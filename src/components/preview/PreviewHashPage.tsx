@@ -10,6 +10,7 @@ import { BuildTimeline } from "@/components/project/BuildTimeline";
 import { TeamSpotlight } from "@/components/project/TeamSpotlight";
 import { ProjectLinks } from "@/components/project/ProjectLinks";
 import { MandateCTA } from "@/components/mandate/MandateCTA";
+import { ReadinessChecklist } from "@/components/project/ReadinessChecklist";
 
 interface Props {
   hash: string;
@@ -19,7 +20,6 @@ export function PreviewHashPage({ hash }: Props) {
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [checklistOpen, setChecklistOpen] = useState(true);
   const [sharecopied, setSharecopied] = useState(false);
 
   useEffect(() => {

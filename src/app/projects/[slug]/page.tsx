@@ -10,6 +10,8 @@ import { BuildTimeline } from "@/components/project/BuildTimeline";
 import { TeamSpotlight } from "@/components/project/TeamSpotlight";
 import { ProjectLinks } from "@/components/project/ProjectLinks";
 import { MandateCTA } from "@/components/mandate/MandateCTA";
+import { ReadinessChecklist } from "@/components/project/ReadinessChecklist";
+import { getReadinessChecklist } from "@/lib/preview-utils";
 
 export const revalidate = 1800;
 
@@ -112,6 +114,9 @@ export default async function ProjectPage({
         <div className="w-full lg:w-80 shrink-0 space-y-4">
           {/* CTA */}
           <MandateCTA trackNames={project.tracks.map((t) => t.name)} />
+
+          {/* Readiness Checklist */}
+          <ReadinessChecklist checklist={getReadinessChecklist(project)} />
 
           {/* Links */}
           <ProjectLinks
