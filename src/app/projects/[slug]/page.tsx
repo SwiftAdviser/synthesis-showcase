@@ -68,6 +68,7 @@ export default async function ProjectPage({
             name={project.name}
             videoURL={project.videoURL}
             coverImageURL={project.coverImageURL}
+            picturesURL={project.pictures}
           />
 
           {/* Title block */}
