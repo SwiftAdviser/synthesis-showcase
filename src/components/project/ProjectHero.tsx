@@ -43,6 +43,21 @@ function VideoEmbed({ videoURL, name }: { videoURL: string; name: string }) {
     );
   }
 
+  // Direct video file (mp4, webm, etc.)
+  if (/\.(mp4|webm|ogg|mov)(\?|$)/i.test(videoURL)) {
+    return (
+      <div className="aspect-video rounded-xl overflow-hidden bg-bg-surface">
+        <video
+          src={videoURL}
+          controls
+          playsInline
+          preload="metadata"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <a
       href={videoURL}
