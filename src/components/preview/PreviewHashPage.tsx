@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { getReadinessChecklist } from "@/lib/preview-utils";
 import { getIntentionLabel } from "@/lib/utils";
 import type { Project } from "@/lib/types";
@@ -12,11 +12,10 @@ import { ProjectLinks } from "@/components/project/ProjectLinks";
 import { MandateCTA } from "@/components/mandate/MandateCTA";
 
 interface Props {
-  paramsPromise: Promise<{ hash: string }>;
+  hash: string;
 }
 
-export function PreviewHashPage({ paramsPromise }: Props) {
-  const { hash } = use(paramsPromise);
+export function PreviewHashPage({ hash }: Props) {
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

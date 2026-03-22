@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description: "Preview how your project will look on the Synthesis Showcase.",
 };
 
-export default function Page({ params }: { params: Promise<{ hash: string }> }) {
-  return <PreviewHashPage paramsPromise={params} />;
+export default async function Page({ params }: { params: Promise<{ hash: string }> }) {
+  const { hash } = await params;
+  return <PreviewHashPage hash={hash} />;
 }
