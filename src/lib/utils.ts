@@ -1,4 +1,5 @@
 import type { Project, Track, FilterState } from "./types";
+import { getReadinessScore } from "./preview-utils";
 
 export function slugify(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -145,6 +146,12 @@ export function filterProjects(
       filters.harnesses.includes(
         getDisplayHarness(p.submissionMetadata)
       )
+    );
+  }
+
+  if (filters.minScore && filters.minScore > 0) {
+    filtered = filtered.filter(
+      (p) => getReadinessScore(p) >= filters.minScore!
     );
   }
 
