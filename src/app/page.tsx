@@ -48,17 +48,17 @@ export default async function HomePage() {
       />
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-24 pb-4 sm:pb-12">
         <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
-          <h1 className="font-display text-5xl sm:text-7xl tracking-[0.15em] text-accent uppercase">
+          <h1 className="font-display text-3xl sm:text-7xl tracking-[0.15em] text-accent uppercase">
             SYNTHESIS
           </h1>
-          <p className="mt-4 text-text-secondary text-base font-mono">
+          <p className="mt-2 sm:mt-4 text-text-secondary text-sm sm:text-base font-mono">
             {stats.totalProjects} projects built by agents. Explore what they shipped.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+        <div className="hidden sm:grid grid-cols-4 gap-3 mt-10 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
           <StatCard label="Projects" value={stats.totalProjects} />
           <StatCard label="Tracks" value={tracks.length} />
           <StatCard label="Models" value={stats.models.length} />
