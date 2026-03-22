@@ -1,353 +1,142 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { jsonToProject, encodePreviewData, decodePreviewData, getReadinessChecklist } from "@/lib/preview-utils";
-import { getIntentionLabel } from "@/lib/utils";
-import type { Project } from "@/lib/types";
-import { ProjectHero } from "@/components/project/ProjectHero";
-import { TechBadges } from "@/components/project/TechBadges";
-import { BuildTimeline } from "@/components/project/BuildTimeline";
-import { TeamSpotlight } from "@/components/project/TeamSpotlight";
-import { ProjectLinks } from "@/components/project/ProjectLinks";
+import { useState } from "react";
 import { MandateCTA } from "@/components/mandate/MandateCTA";
 
+const AGENT_PROMPT = `Preview my Synthesis hackathon project submission on synthesis.mandate.md before I publish. Use the same project JSON I would submit to Devfolio and POST it to https://synthesis.mandate.md/api/preview to get a preview URL.`;
+
 export function PreviewPage() {
-  const [jsonText, setJsonText] = useState("");
-  const [project, setProject] = useState<Project | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
-  const [checklistOpen, setChecklistOpen] = useState(true);
 
-  // Hydrate from URL param on mount
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const encoded = params.get("d");
-    if (encoded) {
-      const decoded = decodePreviewData(encoded);
-      if (decoded) {
-        setJsonText(decoded);
-        tryParse(decoded);
-      }
-    }
-  }, []);
-
-  const tryParse = useCallback((text: string) => {
-    if (!text.trim()) {
-      setProject(null);
-      setError(null);
-      return;
-    }
-    try {
-      const parsed = JSON.parse(text);
-      const proj = jsonToProject(parsed);
-      if (!proj.name && !proj.description) {
-        setError("JSON parsed but no project data found. Check the format.");
-        setProject(null);
-        return;
-      }
-      setProject(proj);
-      setError(null);
-    } catch (e) {
-      setError(e instanceof SyntaxError ? "Invalid JSON syntax" : (e as Error).message);
-      setProject(null);
-    }
-  }, []);
-
-  const handleChange = useCallback((text: string) => {
-    setJsonText(text);
-    tryParse(text);
-  }, [tryParse]);
-
-  const handleShare = useCallback(async () => {
-    if (!jsonText.trim()) return;
-    const encoded = encodePreviewData(jsonText);
-    const url = `${window.location.origin}/preview?d=${encoded}`;
-    await navigator.clipboard.writeText(url);
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(AGENT_PROMPT);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }, [jsonText]);
-
-  const checklist = project ? getReadinessChecklist(project) : [];
-  const requiredPassed = checklist.filter(i => i.status === "fail").length === 0 && checklist.length > 0;
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-2">
-          <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight">
-            Preview Your Submission
-          </h1>
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-accent/15 text-accent border border-accent/30">
-            Beta
-          </span>
-        </div>
-        <p className="text-text-secondary max-w-2xl">
-          See how your project will look on the Synthesis Showcase before you publish.
-          Publishing on Devfolio is irreversible: preview first, ship with confidence.
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+      {/* Hero */}
+      <div className="text-center mb-12">
+        <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          Preview Before You Ship
+        </h1>
+        <p className="text-text-secondary text-lg max-w-xl mx-auto">
+          See exactly how your project will look on the Synthesis Showcase.
+          Publishing on Devfolio is irreversible. Preview first.
         </p>
-        <div className="mt-3 glassmorphic rounded-lg px-4 py-3 border-l-2 border-l-accent max-w-2xl">
-          <p className="text-sm text-text-secondary">
-            <span className="text-accent font-mono text-xs">TIP</span>{" "}
-            Ask your AI agent: <span className="text-text-primary font-medium">&quot;Show me how my project will look on synthesis.mandate.md before I publish.&quot;</span>{" "}
-            Your agent can fetch your draft project JSON and paste it here.
-          </p>
-        </div>
       </div>
 
-      {/* JSON Input */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between mb-2">
-          <label className="font-mono text-[11px] uppercase tracking-widest text-text-dim">
-            Project JSON
-          </label>
-          <div className="flex items-center gap-2">
-            {project && (
-              <button
-                onClick={handleShare}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-bg-raised border border-border hover:border-accent/50 transition-colors"
-              >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                  <polyline points="16 6 12 2 8 6" />
-                  <line x1="12" y1="2" x2="12" y2="15" />
-                </svg>
-                {copied ? "Copied." : "Share preview"}
-              </button>
-            )}
-          </div>
-        </div>
-        <textarea
-          value={jsonText}
-          onChange={(e) => handleChange(e.target.value)}
-          placeholder='Paste your Devfolio project JSON here... (from GET /projects/:uuid or your draft response)'
-          rows={8}
-          spellCheck={false}
-          className="w-full rounded-xl bg-bg-raised border border-border p-4 font-mono text-sm text-text-primary placeholder:text-text-dim/50 focus:outline-none focus:border-accent/50 transition-colors resize-y"
-        />
-        {error && (
-          <p className="mt-2 text-sm text-red-400 font-mono">{error}</p>
-        )}
-      </div>
-
-      {/* Submission Checklist */}
-      {project && (
-        <div className="mb-8 glassmorphic rounded-xl overflow-hidden">
-          <button
-            onClick={() => setChecklistOpen(!checklistOpen)}
-            className="w-full flex items-center justify-between px-5 py-3 hover:bg-bg-raised/50 transition-colors"
-          >
-            <div className="flex items-center gap-3">
-              <h3 className="font-mono text-[11px] uppercase tracking-widest text-text-dim">
-                Submission Readiness
-              </h3>
-              {requiredPassed ? (
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                  Ready
-                </span>
-              ) : (
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-red-500/15 text-red-400 border border-red-500/30">
-                  {checklist.filter(i => i.status === "fail").length} required missing
-                </span>
-              )}
-            </div>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className={`text-text-dim transition-transform ${checklistOpen ? "rotate-180" : ""}`}
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-          {checklistOpen && (
-            <div className="px-5 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5">
-              {checklist.map((item) => (
-                <div key={item.label} className="flex items-center gap-2 py-1">
-                  {item.status === "pass" && (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  )}
-                  {item.status === "fail" && (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.5">
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  )}
-                  {item.status === "warn" && (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2.5">
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="12" y1="8" x2="12" y2="12" />
-                      <line x1="12" y1="16" x2="12.01" y2="16" />
-                    </svg>
-                  )}
-                  <span className={`text-xs ${item.status === "fail" ? "text-text-primary" : "text-text-secondary"}`}>
-                    {item.label}
-                  </span>
-                  {item.detail && (
-                    <span className="text-[10px] text-text-dim">({item.detail})</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Empty State */}
-      {!project && !error && (
-        <div className="flex flex-col items-center justify-center py-20 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-bg-raised flex items-center justify-center mb-4">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-text-dim">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <path d="M3 9h18" />
-              <path d="M9 21V9" />
-            </svg>
-          </div>
-          <p className="text-text-dim text-sm max-w-sm">
-            Paste your project JSON above to see a live preview of how it will appear on the Synthesis Showcase.
-          </p>
-        </div>
-      )}
-
-      {/* Live Preview */}
-      {project && (
-        <div>
+      {/* Agent Command Block */}
+      <div className="relative rounded-2xl overflow-hidden noise-bg mandate-glow border border-accent/30 mb-12">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/8 via-transparent to-accent/5" />
+        <div className="relative p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-4">
-            <h2 className="font-mono text-[11px] uppercase tracking-widest text-text-dim">
-              Live Preview
-            </h2>
-            <div className="flex-1 h-px bg-border" />
+            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-accent">
+              Agent Command
+            </span>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Main column */}
-            <div className="flex-1 min-w-0 space-y-8">
-              <ProjectHero
-                name={project.name}
-                videoURL={project.videoURL}
-                coverImageURL={project.coverImageURL}
-              />
+          <div className="glassmorphic rounded-xl p-4 sm:p-5 mb-4">
+            <p className="text-sm sm:text-base text-text-primary leading-relaxed font-medium">
+              {AGENT_PROMPT}
+            </p>
+          </div>
 
-              <div>
-                <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight">
-                  {project.name || "Untitled Project"}
-                </h1>
-                <p className="text-text-secondary mt-1">{project.team.name || "Your Team"}</p>
-                <div className="mt-4">
-                  <TechBadges metadata={project.submissionMetadata} />
-                </div>
-              </div>
-
-              {project.description && (
-                <div className="prose prose-invert max-w-none">
-                  <p className="text-text-secondary leading-relaxed whitespace-pre-line">
-                    {project.description}
-                  </p>
-                </div>
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-text-dim max-w-md">
+              Copy this to your AI agent (Claude Code, Cursor, Codex, etc.).
+              It will POST your project data and return a private preview URL.
+            </p>
+            <button
+              onClick={handleCopy}
+              className={`shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                copied
+                  ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                  : "bg-accent text-bg-base hover:scale-105 hover:shadow-[0_0_30px_rgba(0,183,61,0.3)]"
+              }`}
+            >
+              {copied ? (
+                <>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  Copied
+                </>
+              ) : (
+                <>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  Copy prompt
+                </>
               )}
-
-              {project.problemStatement && (
-                <div className="border-l-2 border-accent pl-5">
-                  <h3 className="font-mono text-[11px] uppercase tracking-widest text-text-dim mb-2">
-                    Problem Statement
-                  </h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {project.problemStatement}
-                  </p>
-                </div>
-              )}
-
-              <BuildTimeline metadata={project.submissionMetadata} />
-              <TeamSpotlight members={project.members} />
-            </div>
-
-            {/* Sidebar */}
-            <div className="w-full lg:w-80 shrink-0 space-y-4">
-              <MandateCTA trackNames={project.tracks.map((t) => t.name)} />
-
-              {project.repoURL && (
-                <ProjectLinks
-                  repoURL={project.repoURL}
-                  deployedURL={project.deployedURL}
-                  videoURL={project.videoURL}
-                />
-              )}
-
-              {project.tracks.length > 0 && (
-                <div className="glassmorphic rounded-xl p-4">
-                  <h3 className="font-mono text-[11px] uppercase tracking-widest text-text-dim mb-3">
-                    Tracks
-                  </h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tracks.map((t) => (
-                      <span
-                        key={t.uuid || t.slug || t.name}
-                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-accent/10 text-accent border border-accent/20"
-                      >
-                        {t.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {project.submissionMetadata.intention && (
-                <div className="glassmorphic rounded-xl p-4">
-                  <h3 className="font-mono text-[11px] uppercase tracking-widest text-text-dim mb-2">
-                    Intention
-                  </h3>
-                  <p className="text-sm text-text-secondary">
-                    {getIntentionLabel(project.submissionMetadata.intention)}
-                  </p>
-                  {project.submissionMetadata.intentionNotes && (
-                    <p className="text-xs text-text-dim mt-1">
-                      {project.submissionMetadata.intentionNotes}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {project.submissionMetadata.helpfulResources &&
-                project.submissionMetadata.helpfulResources.length > 0 && (
-                  <div className="glassmorphic rounded-xl p-4">
-                    <h3 className="font-mono text-[11px] uppercase tracking-widest text-text-dim mb-2">
-                      Resources
-                    </h3>
-                    <div className="space-y-1">
-                      {project.submissionMetadata.helpfulResources.map((url) => (
-                        <a
-                          key={url}
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-xs text-text-secondary hover:text-accent transition-colors truncate"
-                        >
-                          {url}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-            </div>
+            </button>
           </div>
         </div>
-      )}
-
-      {/* Footer attribution */}
-      <div className="mt-16 pt-6 border-t border-border text-center">
-        <p className="text-[11px] font-mono text-text-dim">
-          Preview tool by{" "}
-          <a href="https://mandate.md" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-            Mandate
-          </a>
-          {" "}: transaction intelligence for autonomous agents
-        </p>
       </div>
+
+      {/* How it works */}
+      <div className="mb-16">
+        <h2 className="font-mono text-[11px] uppercase tracking-widest text-text-dim mb-6 text-center">
+          How it works
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {[
+            {
+              step: "01",
+              title: "Copy the prompt",
+              desc: "Paste the command above into your AI agent's chat",
+            },
+            {
+              step: "02",
+              title: "Agent sends your data",
+              desc: "Your agent POSTs your project JSON to our preview API",
+            },
+            {
+              step: "03",
+              title: "Get your preview URL",
+              desc: "A private link valid for 24 hours, no account needed",
+            },
+          ].map((item) => (
+            <div key={item.step} className="glassmorphic rounded-xl p-5">
+              <span className="font-mono text-2xl font-bold text-accent/40">{item.step}</span>
+              <h3 className="font-display text-base font-semibold mt-2 mb-1">{item.title}</h3>
+              <p className="text-xs text-text-secondary leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* API reference for agents */}
+      <div className="glassmorphic rounded-xl p-5 sm:p-6 mb-16">
+        <h3 className="font-mono text-[11px] uppercase tracking-widest text-text-dim mb-3">
+          For AI Agents: API Reference
+        </h3>
+        <div className="space-y-3 text-sm">
+          <div>
+            <code className="text-accent font-mono text-xs">POST https://synthesis.mandate.md/api/preview</code>
+            <p className="text-text-dim text-xs mt-1">
+              Body: same Project JSON shape as Devfolio submission (name, description, submissionMetadata, tracks, etc.)
+            </p>
+          </div>
+          <div>
+            <code className="text-text-secondary font-mono text-xs">
+              {`Response: { "url": "https://synthesis.mandate.md/preview/{hash}", "expiresAt": "..." }`}
+            </code>
+          </div>
+          <div className="flex gap-4 text-[11px] text-text-dim font-mono pt-1">
+            <span>No API key needed</span>
+            <span>24h TTL</span>
+            <span>100 req/hr limit</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Mandate CTA */}
+      <MandateCTA trackNames={[]} variant="banner" />
     </div>
   );
 }
