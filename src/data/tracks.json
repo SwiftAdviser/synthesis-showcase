@@ -9,31 +9,24 @@
     "updatedAt": "2026-03-20T20:21:09.025Z",
     "prizes": [
       {
-        "uuid": "7d7ddee390f94ce0a15e54c25d4c6d9c",
-        "name": "5th Place",
-        "description": "this student ships",
-        "amount": 500,
-        "currency": "usd",
-        "createdAt": "2026-03-19T23:54:03.860Z",
-        "updatedAt": "2026-03-20T18:54:47.129Z"
-      },
-      {
-        "uuid": "cfbbd31626de494fb5f6a9d0d6fb35a6",
-        "name": "3rd Place",
-        "description": "this student ships",
-        "amount": 500,
-        "currency": "usd",
-        "createdAt": "2026-03-19T23:54:03.880Z",
-        "updatedAt": "2026-03-20T18:54:47.089Z"
-      },
-      {
         "uuid": "cbda87e1b6404f81aef177f33304bd37",
         "name": "2nd Place",
         "description": "this student ships",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-19T23:54:03.485Z",
-        "updatedAt": "2026-03-20T18:54:47.090Z"
+        "updatedAt": "2026-03-22T12:21:55.616Z"
+      },
+      {
+        "uuid": "7d7ddee390f94ce0a15e54c25d4c6d9c",
+        "name": "5th Place",
+        "description": "this student ships",
+        "amount": 500,
+        "currency": "usd",
+        "creditsOnly": true,
+        "createdAt": "2026-03-19T23:54:03.860Z",
+        "updatedAt": "2026-03-22T12:22:02.036Z"
       },
       {
         "uuid": "0c2359c15eef44c0af58250e0a60de90",
@@ -41,8 +34,9 @@
         "description": "this student ships",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-19T23:54:03.861Z",
-        "updatedAt": "2026-03-20T18:54:47.105Z"
+        "updatedAt": "2026-03-22T12:22:06.729Z"
       },
       {
         "uuid": "8ed415f37695451f826e69e5f692c247",
@@ -50,8 +44,19 @@
         "description": "this student ships",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-19T23:54:03.879Z",
-        "updatedAt": "2026-03-20T18:54:47.107Z"
+        "updatedAt": "2026-03-22T12:22:15.889Z"
+      },
+      {
+        "uuid": "cfbbd31626de494fb5f6a9d0d6fb35a6",
+        "name": "3rd Place",
+        "description": "this student ships",
+        "amount": 500,
+        "currency": "usd",
+        "creditsOnly": true,
+        "createdAt": "2026-03-19T23:54:03.880Z",
+        "updatedAt": "2026-03-22T12:22:20.830Z"
       }
     ]
   },
@@ -70,6 +75,7 @@
         "description": "Awarded to the best working AI skill built on Lit Protocol's Chipotle TEE-secured runtime that demonstrates a compelling Knowledge Moat, strong privacy architecture, and a convincing end-to-end proof of concept. The winning skill must seal proprietary data or logic inside a Lit Action and deliver results genuinely inaccessible to foundation models.",
         "amount": 250,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T22:19:08.599Z",
         "updatedAt": "2026-03-19T22:19:08.599Z"
       }
@@ -90,6 +96,7 @@
         "description": "Awarded to the best OpenWallet Standard project. Prize includes $2,500 USDC plus a Mac mini (physical prize shipped separately).",
         "amount": 2500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T19:26:54.473Z",
         "updatedAt": "2026-03-19T19:33:41.542Z"
       },
@@ -99,6 +106,7 @@
         "description": "Awarded to the second-best OpenWallet Standard project. Prize includes $1,000 USDC.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T19:26:54.055Z",
         "updatedAt": "2026-03-19T19:29:39.425Z"
       }
@@ -119,6 +127,7 @@
         "description": "Awarded to the best MoonPay CLI Agents project. Prize includes $2,500 USDC plus a Mac mini (physical prize shipped separately).",
         "amount": 2500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T19:26:54.479Z",
         "updatedAt": "2026-03-19T19:33:41.914Z"
       },
@@ -128,6 +137,7 @@
         "description": "Awarded to the second-best MoonPay CLI Agents project. Prize includes $1,000 USDC.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T19:26:55.046Z",
         "updatedAt": "2026-03-19T19:29:39.045Z"
       }
@@ -148,6 +158,7 @@
         "description": "Awarded to the most impressive and complete EigenCompute project — strongest verifiable compute integration, best architecture, working demo, and production-quality code.",
         "amount": 3000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T07:43:45.035Z",
         "updatedAt": "2026-03-19T07:43:45.035Z"
       },
@@ -157,6 +168,7 @@
         "description": "Awarded to the third-strongest EigenCompute project — creative use case or novel approach to verifiable compute with a functional implementation.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T07:43:44.669Z",
         "updatedAt": "2026-03-19T07:43:44.669Z"
       },
@@ -166,6 +178,7 @@
         "description": "Awarded to the second-strongest EigenCompute project — solid TEE integration and working demo with room for polish.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-19T07:43:45.054Z",
         "updatedAt": "2026-03-19T07:43:45.054Z"
       }
@@ -186,6 +199,7 @@
         "description": "Best overall use case with agentic storage on Filecoin Onchain Cloud — strongest real-world application with working code, mainnet deployment, and clear demonstration of Filecoin as essential infrastructure.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T18:36:58.638Z",
         "updatedAt": "2026-03-17T18:36:58.638Z"
       },
@@ -195,6 +209,7 @@
         "description": "Runner-up use case with agentic storage on Filecoin Onchain Cloud — strong application demonstrating autonomous agent storage, payments, or identity with working code and a compelling demo.",
         "amount": 700,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T18:36:58.637Z",
         "updatedAt": "2026-03-17T18:36:58.637Z"
       },
@@ -204,6 +219,7 @@
         "description": "Third place use case with agentic storage on Filecoin Onchain Cloud — notable application of agent-native storage, retrieval, or onchain payments with functional prototype and demonstrated usage.",
         "amount": 300,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T18:36:58.721Z",
         "updatedAt": "2026-03-17T18:36:58.721Z"
       }
@@ -224,6 +240,7 @@
         "description": "One of three equal prizes for the Autonomous Trading Agent track. No ranking — all winners are recognized equally for building autonomous trading agents with novel strategies and proven profitability.",
         "amount": 1666.67,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T21:21:49.882Z",
         "updatedAt": "2026-03-17T21:21:49.882Z"
       },
@@ -233,6 +250,7 @@
         "description": "One of three equal prizes for the Autonomous Trading Agent track. No ranking — all winners are recognized equally for building autonomous trading agents with novel strategies and proven profitability.",
         "amount": 1666.67,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T21:21:49.855Z",
         "updatedAt": "2026-03-17T21:21:49.855Z"
       },
@@ -242,6 +260,7 @@
         "description": "One of three equal prizes for the Autonomous Trading Agent track. No ranking — all winners are recognized equally for building autonomous trading agents with novel strategies and proven profitability.",
         "amount": 1666.66,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T21:21:49.880Z",
         "updatedAt": "2026-03-17T21:21:49.880Z"
       }
@@ -262,6 +281,7 @@
         "description": "One of three equal prizes for the Agent Services on Base track. No ranking — all winners are recognized equally for building discoverable agent services with x402 payments and meaningful utility.",
         "amount": 1666.67,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T21:21:49.905Z",
         "updatedAt": "2026-03-17T21:21:49.905Z"
       },
@@ -271,6 +291,7 @@
         "description": "One of three equal prizes for the Agent Services on Base track. No ranking — all winners are recognized equally for building discoverable agent services with x402 payments and meaningful utility.",
         "amount": 1666.67,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T21:21:49.885Z",
         "updatedAt": "2026-03-17T21:21:49.885Z"
       },
@@ -280,6 +301,7 @@
         "description": "One of three equal prizes for the Agent Services on Base track. No ranking — all winners are recognized equally for building discoverable agent services with x402 payments and meaningful utility.",
         "amount": 1666.66,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T21:22:03.927Z",
         "updatedAt": "2026-03-17T21:22:03.927Z"
       }
@@ -300,6 +322,7 @@
         "description": "Best developer tool, protocol integration, or platform-layer project built on top of Zyfai's programmable yield primitives. Awarded to the project that most meaningfully extends Zyfai's utility for other builders or protocols.",
         "amount": 400,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T13:03:20.915Z",
         "updatedAt": "2026-03-18T12:47:33.123Z"
       }
@@ -320,6 +343,7 @@
         "description": "Best wallet or consumer app integrating Zyfai yield as seamless, user-abstracted infrastructure. Awarded to the project that most elegantly makes yield invisible while maximizing its impact on the user experience.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T13:03:21.252Z",
         "updatedAt": "2026-03-18T12:47:33.138Z"
       }
@@ -340,6 +364,7 @@
         "description": "Best AI agent that deploys a Zyfai yield account and closes a self-sustaining earn → spend loop. Awarded to the project with the most autonomous, creative, and technically sound yield-funded agent operation.",
         "amount": 600,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-17T13:03:20.915Z",
         "updatedAt": "2026-03-18T12:47:33.122Z"
       }
@@ -360,6 +385,7 @@
         "description": "Awarded to the strongest overall submission in the ERC-8183 Open Build track. Recognizes exceptional execution, genuine and substantive ERC-8183 integration, and clear value delivery — regardless of whether the approach is primarily technical or product-led.",
         "amount": 2000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-16T22:14:41.625Z",
         "updatedAt": "2026-03-16T22:14:41.625Z"
       }
@@ -380,6 +406,7 @@
         "description": "Best contract primitive enabling AI agents to spend stETH yield without accessing principal, with enforced permission controls and a working demo.",
         "amount": 2000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-14T08:28:09.329Z",
         "updatedAt": "2026-03-14T08:28:09.329Z"
       },
@@ -389,6 +416,7 @@
         "description": "Runner-up stETH agent treasury primitive with solid on-chain design and yield-only spending enforcement.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-14T08:28:09.343Z",
         "updatedAt": "2026-03-14T08:28:09.343Z"
       }
@@ -409,6 +437,7 @@
         "description": "Best vault position monitor delivering plain-language alerts, benchmark yield tracking, protocol allocation detection, and MCP-callable vault health tools.",
         "amount": 1500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-14T08:28:09.690Z",
         "updatedAt": "2026-03-14T08:28:09.690Z"
       }
@@ -429,6 +458,7 @@
         "description": "Best reference MCP server for Lido with full stETH/wstETH integration, governance actions, dry_run support, and a developer-ready skill file.",
         "amount": 3000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-14T08:28:09.326Z",
         "updatedAt": "2026-03-14T08:28:09.326Z"
       },
@@ -438,6 +468,7 @@
         "description": "Runner-up MCP server for Lido with strong on-chain integration and agent-callable tooling.",
         "amount": 2000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-14T08:28:09.326Z",
         "updatedAt": "2026-03-14T08:28:09.326Z"
       }
@@ -453,22 +484,24 @@
     "updatedAt": "2026-03-13T19:47:34.081Z",
     "prizes": [
       {
-        "uuid": "2b26049f6211437dba78155b4daefb9a",
-        "name": "1st Place",
-        "description": "Best build story — most compelling account of the building experience, OpenServ's role, and lessons learned.",
-        "amount": 250,
-        "currency": "usd",
-        "createdAt": "2026-03-13T19:47:45.754Z",
-        "updatedAt": "2026-03-13T19:47:45.754Z"
-      },
-      {
         "uuid": "685741f1dc9b460f8d28653a67bd0952",
         "name": "2nd Place",
         "description": "Second best build story — strong account of the building experience with OpenServ.",
         "amount": 250,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T19:47:45.713Z",
         "updatedAt": "2026-03-13T19:47:45.713Z"
+      },
+      {
+        "uuid": "2b26049f6211437dba78155b4daefb9a",
+        "name": "1st Place",
+        "description": "Best build story — most compelling account of the building experience, OpenServ's role, and lessons learned.",
+        "amount": 250,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-13T19:47:45.754Z",
+        "updatedAt": "2026-03-13T19:47:45.754Z"
       }
     ]
   },
@@ -487,6 +520,7 @@
         "description": "Best overall project using OpenServ to power meaningful multi-agent behavior, agentic economy products, x402-native services, or agentic DeFi.",
         "amount": 2500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T19:47:45.727Z",
         "updatedAt": "2026-03-13T19:47:45.727Z"
       },
@@ -496,6 +530,7 @@
         "description": "Third best project using OpenServ infrastructure to power core agentic behavior.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T19:47:45.723Z",
         "updatedAt": "2026-03-13T19:47:45.723Z"
       },
@@ -505,6 +540,7 @@
         "description": "Second best project using OpenServ infrastructure to power core agentic behavior.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T19:47:45.702Z",
         "updatedAt": "2026-03-13T19:47:45.702Z"
       }
@@ -525,6 +561,7 @@
         "description": "Awarded proportionally based on unique views on the integrated Markee message. Prize funding = unique views on your integrated Markee message / total unique views on all eligible integrated Markee messages × $1,000.",
         "amount": 400,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T16:19:14.391Z",
         "updatedAt": "2026-03-13T16:55:24.024Z"
       },
@@ -534,6 +571,7 @@
         "description": "Awarded proportionally based on total funds added to the integrated Markee message. Prize funding = total funds added on your integrated Markee message / total funds added on all eligible integrated Markee messages × $1,000.",
         "amount": 400,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T16:19:14.379Z",
         "updatedAt": "2026-03-13T16:55:24.125Z"
       }
@@ -554,6 +592,7 @@
         "description": "Awarded to the most autonomous, fully end-to-end agent demonstrating the complete decision loop (discover → plan → execute → verify → submit), multi-tool orchestration, robust safety guardrails, ERC-8004 identity, and meaningful real-world impact. Shared track: Synthesis Hackathon × PL_Genesis.",
         "amount": 2000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T14:24:42.574Z",
         "updatedAt": "2026-03-19T06:26:29.781Z"
       },
@@ -563,6 +602,7 @@
         "description": "Awarded to the second-best autonomous agent demonstrating strong end-to-end execution, effective tool use, safety guardrails, and ERC-8004 identity integration. Shared track: Synthesis Hackathon × PL_Genesis.",
         "amount": 1500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T14:24:42.960Z",
         "updatedAt": "2026-03-19T06:36:29.631Z"
       },
@@ -572,6 +612,7 @@
         "description": "Awarded to the third-place autonomous agent demonstrating meaningful autonomous execution, tool use, and compute-aware operation. Shared track: Synthesis Hackathon × PL_Genesis.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T14:24:43.961Z",
         "updatedAt": "2026-03-19T06:36:29.659Z"
       }
@@ -592,6 +633,7 @@
         "description": "Awarded to the top project that best demonstrates trusted agent systems using ERC-8004, with the strongest onchain verifiability, autonomous agent architecture, and DevSpot compatibility. Shared track: Synthesis Hackathon × PL_Genesis.",
         "amount": 2000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T13:54:28.640Z",
         "updatedAt": "2026-03-19T06:47:32.755Z"
       },
@@ -601,6 +643,7 @@
         "description": "Awarded to the second-best project demonstrating trusted agent systems using ERC-8004, with strong onchain verifiability and autonomous architecture. Shared track: Synthesis Hackathon × PL_Genesis.",
         "amount": 1500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T14:16:01.899Z",
         "updatedAt": "2026-03-19T06:45:06.073Z"
       },
@@ -610,6 +653,7 @@
         "description": "Awarded to the third-place project demonstrating meaningful ERC-8004 integration and autonomous agent capabilities. Shared track: Synthesis Hackathon × PL_Genesis.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T14:16:02.891Z",
         "updatedAt": "2026-03-19T06:45:06.058Z"
       }
@@ -630,6 +674,7 @@
         "description": "Awarded to the best AI agent that uses the ampersend-sdk as a core, load-bearing dependency to deliver real utility.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T13:03:05.407Z",
         "updatedAt": "2026-03-13T13:03:05.407Z"
       }
@@ -650,6 +695,7 @@
         "description": "Best agentic application built on Celo, demonstrating real-world utility, economic agency, and strong on-chain integration.",
         "amount": 3000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T10:23:00.794Z",
         "updatedAt": "2026-03-13T15:29:30.654Z"
       },
@@ -659,6 +705,7 @@
         "description": "Runner-up agentic application built on Celo, showing strong potential and creative use of Celo's infrastructure.",
         "amount": 2000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T10:23:00.797Z",
         "updatedAt": "2026-03-13T15:29:31.052Z"
       }
@@ -679,6 +726,7 @@
         "description": "Best agent built and integrated into Pearl — highest overall score and full QA checklist satisfaction",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T09:32:44.316Z",
         "updatedAt": "2026-03-13T09:32:44.316Z"
       }
@@ -699,6 +747,7 @@
         "description": "Best project that hires an agent on Olas Marketplace — highest overall score",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T09:32:33.246Z",
         "updatedAt": "2026-03-13T09:32:33.246Z"
       },
@@ -708,6 +757,7 @@
         "description": "Second best project that hires an agent on Olas Marketplace",
         "amount": 300,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T09:32:33.272Z",
         "updatedAt": "2026-03-13T09:32:33.272Z"
       },
@@ -717,6 +767,7 @@
         "description": "Third best project that hires an agent on Olas Marketplace",
         "amount": 200,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T09:32:33.248Z",
         "updatedAt": "2026-03-13T09:32:33.248Z"
       }
@@ -737,6 +788,7 @@
         "description": "Best project that monetizes an agent on Olas Marketplace — highest overall score",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T09:32:33.269Z",
         "updatedAt": "2026-03-13T09:32:33.269Z"
       },
@@ -746,6 +798,7 @@
         "description": "Second best project that monetizes an agent on Olas Marketplace",
         "amount": 300,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T09:32:33.808Z",
         "updatedAt": "2026-03-13T09:32:33.808Z"
       },
@@ -755,6 +808,7 @@
         "description": "Third best project that monetizes an agent on Olas Marketplace",
         "amount": 200,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T09:32:44.319Z",
         "updatedAt": "2026-03-13T09:32:44.319Z"
       }
@@ -775,6 +829,7 @@
         "description": "Best application built on Alkahest, natural-language-agreements, git-commit-trading, or de-redis-clients. Must use Arkhai protocols as a load-bearing dependency, not a decorative integration.",
         "amount": 450,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T07:50:11.464Z",
         "updatedAt": "2026-03-13T07:50:11.464Z"
       }
@@ -795,6 +850,7 @@
         "description": "Best new arbiter, verification primitive, or obligation pattern extending the Alkahest escrow protocol. Must go beyond wrapping existing contracts — new logic, new verification mechanisms, new trust models.",
         "amount": 450,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T07:50:12.476Z",
         "updatedAt": "2026-03-13T07:50:12.476Z"
       }
@@ -815,6 +871,7 @@
         "description": "Best autonomous system built on the Bankr LLM Gateway — real onchain execution, genuine multi-model usage, and self-sustaining economics (e.g. routing token launch fees, trading revenue, or protocol fees to fund inference).",
         "amount": 3000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:17:59.174Z",
         "updatedAt": "2026-03-13T16:01:25.626Z"
       },
@@ -824,6 +881,7 @@
         "description": "Strong autonomous system using the Bankr LLM Gateway — real onchain outcomes and meaningful integration of Bankr wallets and tools, with a clear path to self-sustaining operation.",
         "amount": 1500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:17:58.803Z",
         "updatedAt": "2026-03-13T16:01:25.635Z"
       },
@@ -833,6 +891,7 @@
         "description": "Solid use of the Bankr LLM Gateway with working onchain outcomes — creative application in areas like trading, token launch, payments, or research with demonstrated real-world utility.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:17:59.197Z",
         "updatedAt": "2026-03-13T16:01:25.626Z"
       }
@@ -853,6 +912,7 @@
         "description": "Awarded to the project that best uses ENS names to establish identity onchain — replacing hex addresses with names for users, apps, or agents.",
         "amount": 400,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:22:31.350Z",
         "updatedAt": "2026-03-13T04:34:28.740Z"
       },
@@ -862,6 +922,7 @@
         "description": "Runner-up prize for the second strongest ENS identity project — using ENS names to establish identity onchain for users, apps, or agents.",
         "amount": 200,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T04:34:28.714Z",
         "updatedAt": "2026-03-13T04:34:28.714Z"
       }
@@ -882,6 +943,7 @@
         "description": "Awarded to the project with the most meaningful ENS integration across any use case — identity, discovery, trust, communication, or something else where ENS is core to the experience.",
         "amount": 300,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:22:31.364Z",
         "updatedAt": "2026-03-13T03:22:31.364Z"
       }
@@ -902,6 +964,7 @@
         "description": "Awarded to the project that best uses ENS names to power communication, payments, or UX flows — eliminating raw addresses from the user experience entirely.",
         "amount": 400,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:22:31.337Z",
         "updatedAt": "2026-03-13T04:34:28.755Z"
       },
@@ -911,6 +974,7 @@
         "description": "Runner-up prize for the second strongest ENS communication project — using ENS names to power messaging, payments, or address-free UX flows.",
         "amount": 200,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T04:34:28.733Z",
         "updatedAt": "2026-03-13T04:34:28.733Z"
       }
@@ -931,6 +995,7 @@
         "description": "Best autonomous agent artwork built on Rare Protocol — awarded to the most compelling synthesis of agent behavior, on-chain mechanics, and artistic expression.",
         "amount": 1200,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:35:21.954Z",
         "updatedAt": "2026-03-13T03:41:48.830Z"
       },
@@ -940,6 +1005,7 @@
         "description": "Runner-up prize for outstanding agent-driven work on Rare Protocol demonstrating strong technical execution and creative use of on-chain mechanics.",
         "amount": 800,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:35:21.947Z",
         "updatedAt": "2026-03-13T03:41:48.849Z"
       },
@@ -949,6 +1015,7 @@
         "description": "Third place prize recognizing innovative approaches to autonomous minting, auction participation, or agent-protocol integration on the Rare Protocol stack.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-13T03:35:21.967Z",
         "updatedAt": "2026-03-13T03:41:48.825Z"
       }
@@ -969,6 +1036,7 @@
         "description": "First place winner — the most creditworthy autonomous trading agent of the cohort. Earns $1,000 USDC and graduates to bond.credit's progressive credit line program with a verified onchain credit score written to their ERC-8004 identity on Arbitrum.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T21:27:47.002Z",
         "updatedAt": "2026-03-13T15:33:07.771Z"
       },
@@ -978,6 +1046,7 @@
         "description": "Second place winner — a proven autonomous trading agent demonstrating genuine creditworthiness. Earns $500 USDC and graduates to bond.credit's progressive credit line program with a verified onchain credit score written to their ERC-8004 identity on Arbitrum.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T21:27:46.992Z",
         "updatedAt": "2026-03-13T15:33:07.775Z"
       }
@@ -998,6 +1067,7 @@
         "description": "Awarded to the best submission in the Mechanism Design for Public Goods Evaluation track.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T21:41:02.212Z",
         "updatedAt": "2026-03-12T21:52:16.613Z"
       }
@@ -1018,6 +1088,7 @@
         "description": "Awarded to the best submission in the Agents for Public Goods Data Analysis for Evaluation track.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T21:41:02.236Z",
         "updatedAt": "2026-03-12T21:53:30.884Z"
       }
@@ -1038,6 +1109,7 @@
         "description": "Awarded to the best submission in the Agents for Public Goods Data Collection for Evaluation track.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T21:41:02.319Z",
         "updatedAt": "2026-03-12T21:52:16.612Z"
       }
@@ -1058,6 +1130,7 @@
         "description": "Winner-takes-all prize awarded to the single best integration of Self Protocol. The winning project must demonstrate a meaningful, functional use of Self Agent ID, Self Pass, or a combination — where the identity layer is load-bearing, not decorative.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T19:35:29.372Z",
         "updatedAt": "2026-03-20T13:51:44.190Z"
       }
@@ -1078,6 +1151,7 @@
         "description": "Community-funded prize pool for the open track.",
         "amount": 28133.96,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T18:26:41.485Z",
         "updatedAt": "2026-03-20T20:24:55.361Z"
       }
@@ -1098,6 +1172,7 @@
         "description": "Best overall submission to the Best Use of Delegations track — awarded to the project that most creatively, technically, and meaningfully uses the MetaMask Delegation Framework. Dream-tier submissions: intent-based delegations as a core pattern, novel ERC-7715 extensions, or ZK proofs combined with delegation-based authorization.",
         "amount": 3000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T15:43:12.017Z",
         "updatedAt": "2026-03-12T15:43:12.017Z"
       },
@@ -1107,6 +1182,7 @@
         "description": "Second-best submission to the Best Use of Delegations track — awarded to strong submissions with creative caveat usage, agent coordination via sub-delegation chains, or well-implemented standard delegation patterns with a clear real-world use case.",
         "amount": 1500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T15:43:12.038Z",
         "updatedAt": "2026-03-12T15:43:12.038Z"
       },
@@ -1116,6 +1192,7 @@
         "description": "Third-place submission to the Best Use of Delegations track — awarded to technically correct submissions that demonstrate solid delegation usage with a clear use case, even if they don't reach the innovation threshold of top tiers.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T15:43:24.413Z",
         "updatedAt": "2026-03-12T15:43:24.413Z"
       }
@@ -1131,38 +1208,12 @@
     "updatedAt": "2026-03-12T18:35:50.306Z",
     "prizes": [
       {
-        "uuid": "67bcc116ff7745c0a03034b2f84b406e",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:51:19.010Z",
-        "updatedAt": "2026-03-12T12:51:19.010Z"
-      },
-      {
-        "uuid": "7ddb57ab57a045b4b6516b2eba8ecd95",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:47:21.096Z",
-        "updatedAt": "2026-03-12T12:47:21.096Z"
-      },
-      {
-        "uuid": "99a83603461344309d6f29aad38cb659",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:47:21.078Z",
-        "updatedAt": "2026-03-12T12:47:21.078Z"
-      },
-      {
         "uuid": "fbafdc8ff2f74d3c9ca4a94f1f219867",
         "name": "Qualifying Submission",
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:47:21.055Z",
         "updatedAt": "2026-03-12T12:47:21.055Z"
       },
@@ -1172,6 +1223,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:47:21.053Z",
         "updatedAt": "2026-03-12T12:47:21.053Z"
       },
@@ -1181,6 +1233,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:45:49.202Z",
         "updatedAt": "2026-03-12T12:45:49.202Z"
       },
@@ -1190,6 +1243,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:45:49.191Z",
         "updatedAt": "2026-03-12T12:45:49.191Z"
       },
@@ -1199,6 +1253,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:45:49.189Z",
         "updatedAt": "2026-03-12T12:45:49.189Z"
       },
@@ -1208,17 +1263,9 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:45:49.177Z",
         "updatedAt": "2026-03-12T12:45:49.177Z"
-      },
-      {
-        "uuid": "ee360ac5586a40c499a5826b1ae40122",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:51:19.395Z",
-        "updatedAt": "2026-03-12T12:51:19.395Z"
       },
       {
         "uuid": "613cc61f83304ba1914318e52f7bd917",
@@ -1226,8 +1273,29 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:44:32.170Z",
         "updatedAt": "2026-03-12T12:44:32.170Z"
+      },
+      {
+        "uuid": "67bcc116ff7745c0a03034b2f84b406e",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:51:19.010Z",
+        "updatedAt": "2026-03-12T12:51:19.010Z"
+      },
+      {
+        "uuid": "9b872aad4b3f420bab1c9b5eeadef7aa",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:42:10.605Z",
+        "updatedAt": "2026-03-12T12:42:10.605Z"
       },
       {
         "uuid": "0250ea2bc6594e34896457dd358bf7d3",
@@ -1235,6 +1303,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:44:32.158Z",
         "updatedAt": "2026-03-12T12:44:32.158Z"
       },
@@ -1244,6 +1313,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:44:32.148Z",
         "updatedAt": "2026-03-12T12:44:32.148Z"
       },
@@ -1253,6 +1323,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:43:22.831Z",
         "updatedAt": "2026-03-12T12:43:22.831Z"
       },
@@ -1262,6 +1333,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:43:22.798Z",
         "updatedAt": "2026-03-12T12:43:22.798Z"
       },
@@ -1271,6 +1343,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:47:21.080Z",
         "updatedAt": "2026-03-12T12:47:21.080Z"
       },
@@ -1280,6 +1353,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:45:49.175Z",
         "updatedAt": "2026-03-12T12:45:49.175Z"
       },
@@ -1289,6 +1363,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:44:32.160Z",
         "updatedAt": "2026-03-12T12:44:32.160Z"
       },
@@ -1298,8 +1373,19 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:44:32.145Z",
         "updatedAt": "2026-03-12T12:44:32.145Z"
+      },
+      {
+        "uuid": "f1c3efcb95ed45b39f5ee28c5ebe33b9",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:42:10.603Z",
+        "updatedAt": "2026-03-12T12:42:10.603Z"
       },
       {
         "uuid": "18f40e34a4af40e4ad6946011415f151",
@@ -1307,6 +1393,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:43:22.812Z",
         "updatedAt": "2026-03-12T12:43:22.812Z"
       },
@@ -1316,6 +1403,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:52:33.960Z",
         "updatedAt": "2026-03-12T12:52:33.960Z"
       },
@@ -1325,17 +1413,9 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:52:33.895Z",
         "updatedAt": "2026-03-12T12:52:33.895Z"
-      },
-      {
-        "uuid": "afcd4e9e195346419438387a0a7f75ce",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:43:22.805Z",
-        "updatedAt": "2026-03-12T12:43:22.805Z"
       },
       {
         "uuid": "68be81293e5442dbb155e400d578c464",
@@ -1343,8 +1423,19 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:33.443Z",
         "updatedAt": "2026-03-12T12:51:33.443Z"
+      },
+      {
+        "uuid": "afcd4e9e195346419438387a0a7f75ce",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:43:22.805Z",
+        "updatedAt": "2026-03-12T12:43:22.805Z"
       },
       {
         "uuid": "4c71a8c9d82944e2812a7aaa2ce27ead",
@@ -1352,6 +1443,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:33.068Z",
         "updatedAt": "2026-03-12T12:51:33.068Z"
       },
@@ -1361,6 +1453,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:33.065Z",
         "updatedAt": "2026-03-12T12:51:33.065Z"
       },
@@ -1370,35 +1463,9 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:19.397Z",
         "updatedAt": "2026-03-12T12:51:19.397Z"
-      },
-      {
-        "uuid": "a46a90f8c52f4eeea387676fd15da747",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:43:22.797Z",
-        "updatedAt": "2026-03-12T12:43:22.797Z"
-      },
-      {
-        "uuid": "2a7aa5b0509a42ed82e8e70733ca79ed",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:51:33.420Z",
-        "updatedAt": "2026-03-12T12:51:33.420Z"
-      },
-      {
-        "uuid": "b506edcc4add4908a1d5a91b6a7a7bbc",
-        "name": "Qualifying Submission",
-        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
-        "amount": 50,
-        "currency": "usd",
-        "createdAt": "2026-03-12T12:51:33.068Z",
-        "updatedAt": "2026-03-12T12:51:33.068Z"
       },
       {
         "uuid": "d2a9169d71704fa799fa99bf344e9e17",
@@ -1406,17 +1473,29 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:52:33.907Z",
         "updatedAt": "2026-03-12T12:52:33.907Z"
       },
       {
-        "uuid": "9b872aad4b3f420bab1c9b5eeadef7aa",
+        "uuid": "a46a90f8c52f4eeea387676fd15da747",
         "name": "Qualifying Submission",
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
-        "createdAt": "2026-03-12T12:42:10.605Z",
-        "updatedAt": "2026-03-12T12:42:10.605Z"
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:43:22.797Z",
+        "updatedAt": "2026-03-12T12:43:22.797Z"
+      },
+      {
+        "uuid": "b506edcc4add4908a1d5a91b6a7a7bbc",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:51:33.068Z",
+        "updatedAt": "2026-03-12T12:51:33.068Z"
       },
       {
         "uuid": "504b850e9b7340c08a926e02310bb634",
@@ -1424,26 +1503,29 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:19.408Z",
         "updatedAt": "2026-03-12T12:51:19.408Z"
       },
       {
-        "uuid": "07403ce0dfa54f03a68af7c56fa45403",
+        "uuid": "2a7aa5b0509a42ed82e8e70733ca79ed",
         "name": "Qualifying Submission",
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
-        "createdAt": "2026-03-12T12:51:03.625Z",
-        "updatedAt": "2026-03-12T12:51:03.625Z"
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:51:33.420Z",
+        "updatedAt": "2026-03-12T12:51:33.420Z"
       },
       {
-        "uuid": "f1c3efcb95ed45b39f5ee28c5ebe33b9",
+        "uuid": "ee360ac5586a40c499a5826b1ae40122",
         "name": "Qualifying Submission",
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
-        "createdAt": "2026-03-12T12:42:10.603Z",
-        "updatedAt": "2026-03-12T12:42:10.603Z"
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:51:19.395Z",
+        "updatedAt": "2026-03-12T12:51:19.395Z"
       },
       {
         "uuid": "97bed83188e240ffbe39b9f01c726dca",
@@ -1451,6 +1533,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:03.616Z",
         "updatedAt": "2026-03-12T12:51:03.616Z"
       },
@@ -1460,6 +1543,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:03.613Z",
         "updatedAt": "2026-03-12T12:51:03.613Z"
       },
@@ -1469,6 +1553,7 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:03.597Z",
         "updatedAt": "2026-03-12T12:51:03.597Z"
       },
@@ -1478,8 +1563,29 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:03.586Z",
         "updatedAt": "2026-03-12T12:51:03.586Z"
+      },
+      {
+        "uuid": "7ddb57ab57a045b4b6516b2eba8ecd95",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:47:21.096Z",
+        "updatedAt": "2026-03-12T12:47:21.096Z"
+      },
+      {
+        "uuid": "07403ce0dfa54f03a68af7c56fa45403",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:51:03.625Z",
+        "updatedAt": "2026-03-12T12:51:03.625Z"
       },
       {
         "uuid": "aeaaa122fc5448dd94bf4f52f60c3db6",
@@ -1487,8 +1593,19 @@
         "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
         "amount": 50,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T12:51:18.994Z",
         "updatedAt": "2026-03-12T12:51:18.994Z"
+      },
+      {
+        "uuid": "99a83603461344309d6f29aad38cb659",
+        "name": "Qualifying Submission",
+        "description": "Equal-share prize awarded to each team that meets all qualifying criteria: verified smart contract deployment on Status Network Sepolia Testnet, at least one gasless transaction (gasPrice=0, gas=0) with tx hash proof, an AI agent component, and a README or short video demo.",
+        "amount": 50,
+        "currency": "usd",
+        "creditsOnly": false,
+        "createdAt": "2026-03-12T12:47:21.078Z",
+        "updatedAt": "2026-03-12T12:47:21.078Z"
       }
     ]
   },
@@ -1507,6 +1624,7 @@
         "description": "1,000 VVV. The USD field ($5,750) is a platform accounting reference only. VVV is Venice's native token — stake it to mint DIEM, tokenized API access at $1/day of Venice compute, tradeable on Base.",
         "amount": 5750,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T02:38:01.697Z",
         "updatedAt": "2026-03-13T22:32:46.806Z"
       },
@@ -1516,6 +1634,7 @@
         "description": "600 VVV. The USD field ($3,450) is a platform accounting reference only. VVV is Venice's native token — stake it to mint DIEM, tokenized API access at $1/day of Venice compute, tradeable on Base.",
         "amount": 3450,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T02:38:01.717Z",
         "updatedAt": "2026-03-13T22:32:46.794Z"
       },
@@ -1525,6 +1644,7 @@
         "description": "400 VVV. The USD field ($2,300) is a platform accounting reference only. VVV is Venice's native token — stake it to mint DIEM, tokenized API access at $1/day of Venice compute, tradeable on Base.",
         "amount": 2300,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-12T02:38:01.315Z",
         "updatedAt": "2026-03-13T22:32:46.830Z"
       }
@@ -1545,8 +1665,9 @@
         "description": "$500 USD in credits for an upcoming Slice product. Winners must provide an Ethereum address to claim.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-11T22:56:09.544Z",
-        "updatedAt": "2026-03-11T22:56:09.544Z"
+        "updatedAt": "2026-03-22T12:21:32.464Z"
       },
       {
         "uuid": "6a48731cb21a4379845838e7a67e9a46",
@@ -1554,8 +1675,9 @@
         "description": "$250 USD in credits for an upcoming Slice product. Winners must provide an Ethereum address to claim.",
         "amount": 250,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-11T22:56:09.572Z",
-        "updatedAt": "2026-03-11T22:56:09.572Z"
+        "updatedAt": "2026-03-22T12:21:41.976Z"
       }
     ]
   },
@@ -1574,8 +1696,9 @@
         "description": "$500 USD in Slice infrastructure credits. Winners must provide an Ethereum address to claim.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-11T22:56:09.539Z",
-        "updatedAt": "2026-03-11T22:56:09.539Z"
+        "updatedAt": "2026-03-22T12:20:49.403Z"
       },
       {
         "uuid": "396fd15b4ca34ddb8f4e334776426548",
@@ -1583,8 +1706,9 @@
         "description": "$250 USD in Slice infrastructure credits. Winners must provide an Ethereum address to claim.",
         "amount": 250,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-11T22:56:25.509Z",
-        "updatedAt": "2026-03-11T22:56:25.509Z"
+        "updatedAt": "2026-03-22T12:21:46.394Z"
       }
     ]
   },
@@ -1603,8 +1727,9 @@
         "description": "2 Slice Pass NFTs (~$150 each) + $250 USD in Slice infrastructure credits. Winners must provide an Ethereum address to claim.",
         "amount": 550,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-11T22:56:09.167Z",
-        "updatedAt": "2026-03-13T01:41:23.363Z"
+        "updatedAt": "2026-03-22T12:21:23.905Z"
       },
       {
         "uuid": "6a5dde3d40b04158a12e085906507a71",
@@ -1612,8 +1737,9 @@
         "description": "1 Slice Pass NFT (~$150 at 0.075 ETH). Winners must provide an Ethereum address to claim.",
         "amount": 150,
         "currency": "usd",
+        "creditsOnly": true,
         "createdAt": "2026-03-11T22:56:09.571Z",
-        "updatedAt": "2026-03-13T01:41:23.356Z"
+        "updatedAt": "2026-03-22T12:21:37.792Z"
       }
     ]
   },
@@ -1632,6 +1758,7 @@
         "description": "Best agentic finance integration powered by the Uniswap API. Must use a real Developer Platform API key, ship real TxIDs on testnet or mainnet, and demonstrate meaningful depth in the Uniswap stack. Any agent that pays needs to swap — show us what comes next.",
         "amount": 2500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-11T22:13:47.026Z",
         "updatedAt": "2026-03-12T20:31:50.386Z"
       },
@@ -1641,6 +1768,7 @@
         "description": "Second-best agentic finance integration — functional, open source, and demonstrating solid use of the Uniswap API with real execution and clear documentation.",
         "amount": 1500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-11T22:13:47.023Z",
         "updatedAt": "2026-03-12T20:31:50.003Z"
       },
@@ -1650,6 +1778,7 @@
         "description": "Third-place agentic finance integration — solid Uniswap API usage with real execution, open source code, and a clear README.",
         "amount": 1000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-11T22:13:47.063Z",
         "updatedAt": "2026-03-12T20:31:50.408Z"
       }
@@ -1670,6 +1799,7 @@
         "description": "Best overall Locus integration — agent-native payments that are core to the product, deeply woven into autonomous flows with spending controls and auditability.",
         "amount": 2000,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-11T02:43:22.521Z",
         "updatedAt": "2026-03-11T02:43:22.521Z"
       },
@@ -1679,6 +1809,7 @@
         "description": "Runner-up Locus integration — strong use of Locus APIs with meaningful agent autonomy, showing clear understanding of the agent-native payment model.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-11T02:43:33.751Z",
         "updatedAt": "2026-03-11T02:43:33.751Z"
       },
@@ -1688,6 +1819,7 @@
         "description": "Third-place Locus integration — demonstrates working Locus integration with promising approach to agent-native payments.",
         "amount": 500,
         "currency": "usd",
+        "creditsOnly": false,
         "createdAt": "2026-03-11T02:43:33.763Z",
         "updatedAt": "2026-03-11T02:43:33.763Z"
       }
