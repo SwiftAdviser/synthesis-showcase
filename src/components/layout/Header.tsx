@@ -35,6 +35,9 @@ export function Header() {
             <Link href="/stats" className="hover:text-text-primary transition-colors">
               Stats
             </Link>
+            <Link href="/scoring" className="hover:text-text-primary transition-colors">
+              Scoring
+            </Link>
             <Link
               href="/preview"
               className="group/cta relative inline-flex items-center gap-2 px-4 py-1.5 rounded-lg font-mono text-xs tracking-[0.08em] uppercase text-accent border border-accent/30 overflow-hidden hover:border-accent/60 hover:shadow-[0_0_24px_rgba(0,183,61,0.25)] hover:scale-[1.03] transition-all duration-300"
