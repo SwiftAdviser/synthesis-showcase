@@ -75,7 +75,7 @@ export default async function ProjectPage({
 
           {/* Title block */}
           <div>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+            <h1 className="font-accent text-3xl sm:text-4xl font-bold tracking-tight">
               {project.name}
             </h1>
             <p className="text-text-secondary mt-1">{project.team.name}</p>
