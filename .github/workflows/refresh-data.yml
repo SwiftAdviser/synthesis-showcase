@@ -23,7 +23,7 @@ jobs:
             const projects = [];
             let page = 1;
             while (true) {
-              const res = await fetch('https://synthesis.devfolio.co/projects?page=' + page + '&limit=50');
+              const res = await fetch('https://synthesis-devfolio-proxy.krutovoyroman.workers.dev/projects?page=' + page + '&limit=50');
               const data = await res.json();
               projects.push(...data.data);
               if (page >= data.pagination.totalPages) break;
@@ -33,7 +33,7 @@ jobs:
             const tracks = [];
             page = 1;
             while (true) {
-              const res = await fetch('https://synthesis.devfolio.co/catalog?page=' + page + '&limit=50');
+              const res = await fetch('https://synthesis-devfolio-proxy.krutovoyroman.workers.dev/catalog?page=' + page + '&limit=50');
               const data = await res.json();
               tracks.push(...data.items);
               if (!data.pagination.hasNextPage) break;
