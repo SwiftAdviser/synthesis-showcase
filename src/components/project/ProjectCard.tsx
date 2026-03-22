@@ -1,39 +1,13 @@
 import Link from "next/link";
 import type { Project } from "@/lib/types";
-import { hashGradient } from "@/lib/utils";
+import { hashGradient, getVideoId } from "@/lib/utils";
 import { getReadinessScore } from "@/lib/preview-utils";
 import { TechBadges } from "./TechBadges";
+import { ReadinessStars } from "./ReadinessStars";
 
 interface Props {
   project: Project;
   index?: number;
-}
-
-function ReadinessStars({ score }: { score: number }) {
-  return (
-    <div className="group/stars relative inline-flex items-center gap-px cursor-help">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <svg
-          key={i}
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
-          fill={i <= score ? "currentColor" : "none"}
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className={i <= score ? "text-accent" : "text-text-dim/40"}
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      ))}
-      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 rounded-lg bg-bg-base border border-border text-[10px] text-text-secondary whitespace-nowrap opacity-0 pointer-events-none group-hover/stars:opacity-100 transition-opacity duration-200 z-10 shadow-lg">
-        <span className="text-text-primary font-medium">{score}/5</span> submission readiness
-        <br />
-        <span className="text-text-dim">Based on completeness of required fields</span>
-        <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-border" />
-      </div>
-    </div>
-  );
 }
 
 export function ProjectCard({ project, index = 0 }: Props) {
@@ -41,6 +15,8 @@ export function ProjectCard({ project, index = 0 }: Props) {
   const commitCount = p.submissionMetadata.commitCount ?? 0;
   const commitPercent = Math.min(100, (commitCount / 100) * 100);
   const score = getReadinessScore(p);
+  const ytId = p.videoURL ? getVideoId(p.videoURL) : null;
+  const thumbUrl = p.coverImageURL || (ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : null);
 
   return (
     <Link
@@ -52,11 +28,11 @@ export function ProjectCard({ project, index = 0 }: Props) {
         {/* Thumbnail */}
         <div
           className="w-20 h-14 sm:w-28 sm:h-20 rounded-lg shrink-0 overflow-hidden relative noise-bg"
-          style={{ background: p.coverImageURL ? undefined : hashGradient(p.name) }}
+          style={{ background: thumbUrl ? undefined : hashGradient(p.name) }}
         >
-          {p.coverImageURL ? (
+          {thumbUrl ? (
             <img
-              src={p.coverImageURL}
+              src={thumbUrl}
               alt=""
               className="w-full h-full object-cover"
               loading="lazy"
