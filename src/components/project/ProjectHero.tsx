@@ -95,11 +95,27 @@ function ImageLightbox({
 export function ProjectHero({ name, videoURL, coverImageURL, picturesURL }: Props) {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
-  // Collect all images: cover first, then pictures URL if it looks like an image
+  // Collect all images: cover first, then parsed pictures
   const images: string[] = [];
   if (coverImageURL) images.push(coverImageURL);
-  if (picturesURL && /\.(png|jpg|jpeg|gif|webp|svg)/i.test(picturesURL)) {
-    images.push(picturesURL);
+  if (picturesURL) {
+    // pictures field can be comma-separated, newline-separated, or both
+    const urls = picturesURL
+      .split(/[,\n]+/)
+      .map((u) => u.trim())
+      .filter((u) => {
+        if (!u || !u.startsWith("http")) return false;
+        // Exclude obvious non-image URLs (html pages, docs, apps)
+        if (/\.(html|htm)$/i.test(u)) return false;
+        if (u.includes("vercel.app") && !u.match(/\.(png|jpg|jpeg|gif|webp|svg)/i)) return false;
+        if (u.includes("gamma.app")) return false;
+        // Exclude file:// protocol
+        if (u.startsWith("file:")) return false;
+        return true;
+      })
+      // Deduplicate against cover image
+      .filter((u) => u !== coverImageURL);
+    images.push(...urls);
   }
 
   const hasVideo = !!videoURL;
