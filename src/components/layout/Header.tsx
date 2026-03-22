@@ -23,8 +23,8 @@ export function Header() {
       <header className="sticky top-0 z-40 glassmorphic">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="font-display text-lg tracking-[0.15em] text-accent uppercase">
-              SYNTHESIS
+            <span className="font-accent text-[15px] font-medium tracking-[0.2em] text-accent uppercase">
+              Synthesis
             </span>
           </Link>
 
