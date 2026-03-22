@@ -66,8 +66,20 @@ export function PreviewHashPage({ paramsPromise }: Props) {
     );
   }
 
+  const [sharecopied, setSharecopied] = useState(false);
   const checklist = getReadinessChecklist(project);
   const requiredPassed = checklist.filter(i => i.status === "fail").length === 0;
+  const missedItems = checklist.filter(i => i.status !== "pass");
+
+  const handleShareMissed = async () => {
+    const lines = missedItems.map(i =>
+      `- ${i.label}${i.status === "fail" ? " (required)" : " (recommended)"}`
+    ).join("\n");
+    const prompt = `My Synthesis project submission preview is missing these fields. Please update my project submission to include them:\n\n${lines}\n\nThen re-submit the preview to https://synthesis.mandate.md/api/preview to get an updated preview URL.`;
+    await navigator.clipboard.writeText(prompt);
+    setSharecopied(true);
+    setTimeout(() => setSharecopied(false), 2500);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
@@ -133,11 +145,34 @@ export function PreviewHashPage({ paramsPromise }: Props) {
                 <span className={`text-xs ${item.status === "fail" ? "text-text-primary" : "text-text-secondary"}`}>
                   {item.label}
                 </span>
-                {item.detail && (
+                {item.status !== "pass" && (
+                  <span className={`text-[10px] font-mono ${item.status === "fail" ? "text-red-400" : "text-amber-400"}`}>
+                    (missed)
+                  </span>
+                )}
+                {item.detail && item.status === "pass" && (
                   <span className="text-[10px] text-text-dim">({item.detail})</span>
                 )}
               </div>
             ))}
+          </div>
+        )}
+        {checklistOpen && missedItems.length > 0 && (
+          <div className="px-5 pb-4 pt-1 border-t border-border">
+            <button
+              onClick={handleShareMissed}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-200 ${
+                sharecopied
+                  ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                  : "bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20"
+              }`}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              {sharecopied ? "Copied. Paste to your agent." : `Share ${missedItems.length} missed fields with agent`}
+            </button>
           </div>
         )}
       </div>
