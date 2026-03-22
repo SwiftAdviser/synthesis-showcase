@@ -4,7 +4,7 @@
     "slug": "safety-md-e0ce",
     "name": "safety.md",
     "description": "safety.md is two things: a file standard and a verification tool.\n\nServices that accept agent payments publish a safety.md file at their web root declaring their payment addresses, identity proofs, and trust signals — like robots.txt told crawlers how to behave, safety.md tells agents who they are paying.\n\nThe aggregator API crawls, indexes, and enriches these files with on-chain data (ERC-8004 identity + reputation, address age, payment history, flag lists) and exposes a single endpoint: Is this address safe to pay?\n\nThe MCP server wraps the API as a tool that any agent can call before sending funds. One line of config. No SDK. No npm install.\n\nBuilt on Cloudflare Workers (zero infra cost), integrated with ERC-8004 Identity and Reputation Registries on Base mainnet, and designed to compose with MPP and x402 service directories.\n\nZero competition. No file standard exists for agent payment trust signals. robots.txt for crawlers. llms.txt for LLMs. security.txt for vulnerability disclosure. safety.md for payments.",
-    "deployedURL": null,
+    "deployedURL": "https://safetymd.p-u-c.workers.dev",
     "repoURL": "https://github.com/P-U-C/safetymd",
     "videoURL": null,
     "pictures": null,
@@ -22,9 +22,9 @@
         "mcp"
       ],
       "intention": "continuing",
-      "commitCount": 1,
+      "commitCount": 3,
       "agentHarness": "openclaw",
-      "lastCommitAt": "2026-03-22T10:32:09Z",
+      "lastCommitAt": "2026-03-22T10:59:31Z",
       "firstCommitAt": "2026-03-22T10:32:09Z",
       "agentFramework": "other",
       "contributorCount": 1,
@@ -33,7 +33,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-22T10:41:24.686Z",
-    "updatedAt": "2026-03-22T10:41:54.880Z",
+    "updatedAt": "2026-03-22T11:05:16.091Z",
     "problemStatement": "AI agents are being asked to make payments autonomously but they have no way to verify who they are paying. A phishing attack on an agent does not send a suspicious email. It returns a valid HTTP 402 response with a malicious payment address. The agent pays. No warning. No undo.\n\nThere is no robots.txt for agent payments. No standard way for a service to declare its payment addresses. No canonical check an agent can run before sending funds. Every agent payment is a trust decision made blind.\n\nsafety.md solves this. Services publish a simple markdown file at their web root declaring their payment addresses and identity proofs. An aggregator crawls, indexes, and enriches these files with on-chain data. An MCP server exposes a single tool: safety_check. Agents call it before paying. The answer comes back in under 200ms.",
     "tracks": [
       {
@@ -370,7 +370,7 @@
     "uuid": "4660a8a8d6ee4a68814ab3b3d2ba5b77",
     "slug": "sentinel-always-watching-provably-thinking-yield-only-acting-8b0d",
     "name": "Sentinel — Always Watching. Provably Thinking. Yield-Only Acting.",
-    "description": "Sentinel is a fully autonomous AI treasury management system for DAOs and large ETH holders. It fuses two primitives never combined before: continuous private risk monitoring via Venice AI, and cryptographically-verified simulation-before-execution via EigenCloud TEE.\n\nA DAO deposits ETH into Lido Finance, receiving wstETH that earns staking yield passively. The principal is locked at the smart contract level — the agent is structurally incapable of touching it. Only the yield income flows into the agent's operating wallet.\n\nVenice AI runs a continuous private monitoring loop analyzing validator slashing risk, MEV exposure, stETH liquidity stress signals, and yield optimization opportunities. This analysis happens in a privacy-preserving compute context — sensitive position data never appears onchain and is never stored by any third party.\n\nWhen Venice detects a risk event, it triggers a simulation inside EigenCloud's Trusted Execution Environment. The TEE produces a cryptographic shadow proof — a signed attestation proving the simulation ran honestly at a specific confidence score. Only when this proof clears a user-defined threshold does the agent execute.\n\nSwaps route through Uniswap v4 hooks with MEV protection. Spending limits are enforced via MetaMask's Delegation Framework. Every executed decision is written as an ERC-8004 onchain receipt on Base mainnet — a verifiable, permanent record of what the agent did, when, why, and the outcome.\n\nFive properties no existing system has simultaneously:\n1. Always-on private risk monitoring (Venice AI)\n2. Proof of deliberation before every action (EigenCloud shadow proof)\n3. Principal structurally untouchable at the contract level (Lido + SentinelVault)\n4. MEV-protected execution with precise spending guardrails (Uniswap v4 + MetaMask Delegation)\n5. Permanent verifiable decision audit trail (ERC-8004 on Base mainnet)\n\nDeployed contracts on Base Mainnet:\n- SentinelVault: 0xa7ecd19963abcbd8ee8df55b97f6a25ab80bc34a\n- SentinelDelegation: 0x9317b43be52a3159489073853c2adb2ee4960013\n- SentinelReceipt: 0x1a20d875822fe026c3388b4780ab34fe29e7855b\n- SentinelSwapHook: 0x94f02cc3954a4c3322afb14741d4e7d2a89f7871\n\nEigenCloud Docker Image: vinaystwt/sentinel-simulation:latest\nSynthesis ERC-8004 Identity TX: https://basescan.org/tx/0x1d8f6b43ac6a697f8f1a285e3b2ee40b499c5387764fa875e9bb9bb31b93a19d\nShadow proof registered onchain: https://basescan.org/tx/0x7e23e0e38c7a809d7ad0cbfcd98db76c5210020f9c4f2862e2aa341c583fbe8b\nERC-8004 receipt written: https://basescan.org/tx/0x7d84c132ea189e8d6bc391bc209301dea531c5ec2136b5fb4b12539c9e038973",
+    "description": "Sentinel is a fully autonomous AI treasury management system for DAOs. EigenCloud TEE simulation now LIVE at http://34.142.241.100:8080 — App ID: 0x28b72Cd70b8932aBAd5DAf0E1cE6114877548bA6\n\nDeployed contracts on Base Mainnet:\n- SentinelVault: 0xa7ecd19963abcbd8ee8df55b97f6a25ab80bc34a\n- SentinelDelegation: 0x9317b43be52a3159489073853c2adb2ee4960013\n- SentinelReceipt: 0x1a20d875822fe026c3388b4780ab34fe29e7855b\n- SentinelSwapHook: 0x94f02cc3954a4c3322afb14741d4e7d2a89f7871\n\nEigenCloud: http://34.142.241.100:8080 (App ID: 0x28b72Cd70b8932aBAd5DAf0E1cE6114877548bA6)",
     "deployedURL": "https://vinaystwt.github.io/sentinel/",
     "repoURL": "https://github.com/Vinaystwt/sentinel",
     "videoURL": null,
@@ -422,7 +422,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-22T09:52:42.808Z",
-    "updatedAt": "2026-03-22T10:08:31.959Z",
+    "updatedAt": "2026-03-22T10:55:22.212Z",
     "problemStatement": "DAOs collectively manage billions in treasury assets — Arbitrum ($1.2B+), Optimism, Uniswap, Lido itself — and face a common crisis: their ETH sits idle, earning nothing or less than it should, with zero automated risk protection.\n\nThe 2022 stETH depeg cost unprepared protocols hundreds of millions in days. The warning signals existed. The root cause was that no system was watching continuously and acting fast enough. A manual governance vote takes 3-7 days. A liquidity crisis unfolds in hours.\n\nDAOs need autonomous agents to manage treasury risk in real time. But token holders cannot give an AI agent unlimited access to billion-dollar funds. Sentinel resolves this tension: the agent is autonomous and fast, but structurally limited to spending only yield income, with every decision proven before execution and receipted permanently onchain.\n\nLido Finance alone holds over $35 billion in staked ETH TVL — all of it exposed to validator slashing risk, MEV, and liquidity stress with no automated protection layer.",
     "tracks": [
       {
@@ -502,7 +502,7 @@
     "uuid": "1b695486f39247ada7807ec7d0026360",
     "slug": "aegis-agent-treasury-with-scoped-delegations-aa27",
     "name": "Aegis — Agent Treasury with Scoped Delegations",
-    "description": "Aegis is a treasury system that lets humans safely delegate spending authority to AI agents on Base. Agents operate within human-defined bounds — spending caps, allowed targets, and time windows — while every action is logged on-chain for full auditability.\n\n## The Problem\n\nAI agents need to spend money autonomously, but giving them a private key means unlimited risk. Co-signing every transaction defeats the purpose of autonomy. There is no middle ground for scoped, revocable spending authority. This is the fundamental trust problem blocking the agent economy.\n\n## The Solution\n\nAegis provides scoped, revocable spending permissions. The human deposits funds, defines bounds (max amount, allowed targets, expiry), and the agent operates freely within those bounds. If the agent gets compromised, damage is capped. The human can revoke instantly.\n\n## What We Built\n\n**Smart Contracts (Solidity/Foundry):**\n- AegisTreasury: vault with scoped agent allowances, target restrictions, time-bound permissions, batch queries, and agent-callable contract execution for DEX swaps. 32 tests passing.\n- AegisTreasuryFactory: deploys per-user treasury vaults with tracking\n- IAegisTreasury: clean interface with full NatSpec documentation\n\n**Agent SDK (TypeScript):**\n- Treasury interactions, Venice AI private inference, Uniswap V3 swaps\n- MetaMask Delegation Framework with CaveatBuilder (ERC-20 amounts, targets, timestamps)\n- Trading strategies: DCA (dollar-cost averaging), Momentum (QuoterV2 price impact), Rebalance (portfolio allocation)\n- RiskManager: per-trade limits, daily volume caps, slippage bounds\n- On-chain price feeds via Uniswap V3 pool slot0 and QuoterV2\n- Multi-agent orchestration: OrchestratorAgent → SwapAgent (momentum) + TransferAgent (DCA)\n- ERC-8004 agent identity manifests and execution logs\n\n**Web Dashboard (Next.js):**\n- Premium dark glassmorphism theme\n- Wallet connection, deposit/withdraw, create scoped allowances\n- Real-time agent activity monitoring, instant revocation\n\n## Deployed Contracts (Base Sepolia)\n\n| Contract | Address |\n|----------|---------|\n| AegisTreasury | 0x33E42b7db9569fb4f3cd6d68180fcC007AE6ece7 |\n| AegisTreasuryFactory | 0x43EF4a074C9A00437B536533d6b6a95D7Bc0D9Fe |\n| MockUSDC | 0x62932909ab43336B6710444DA8232333157a6f7c |\n\n## On-Chain Proof\n\n- Agent Transfer (10 USDC, reason logged): https://sepolia.basescan.org/tx/0x7421a7528b4a1f863be14d91fab0cffdee7369f6790a551750c829117ef8e1a0\n- E2E Demo Transfer (1 USDC): https://sepolia.basescan.org/tx/0x10bfe87174f1c1b30dd9fe21b0729049a2a26053d0dc4f4f38e4e2f73ce94abd\n- Treasury Deposit (1000 USDC): https://sepolia.basescan.org/tx/0x468a63a5834311af4957826cc989bb6e772aa8b6ebdfcc645e1bf2d0b37aab2f\n\n## Built With\n\n- Claude Opus 4.6 (architecture, contracts, integration, coordination)\n- OpenAI Codex gpt-5.3-codex (trading strategies, multi-agent orchestration, factory pattern)\n- Venice AI (private inference for agent strategy)\n- MetaMask Delegation Framework (scoped permissions)\n- Uniswap V3 (token swaps and price feeds)",
+    "description": "Aegis is a treasury system that lets humans safely delegate spending authority to AI agents on Base. Agents operate within human-defined bounds — spending caps, allowed targets, and time windows — while every action is logged on-chain for full auditability.\n\n## The Problem\n\nAI agents need to spend money autonomously, but giving them a private key means unlimited risk. Co-signing every transaction defeats the purpose of autonomy. There is no middle ground for scoped, revocable spending authority.\n\n## The Solution\n\nAegis provides scoped, revocable spending permissions. The human deposits funds, defines bounds (max amount, allowed targets, expiry), and the agent operates freely within those bounds. Damage is capped. Revocation is instant.\n\n## What We Built\n\n**Smart Contracts (Solidity/Foundry) — 50 tests, 5 contracts:**\n- AegisTreasury: vault with scoped allowances, target restrictions, time-bound permissions, batch queries, agent-callable DEX execution, emergency controls (pause/unpause, emergency withdraw, revoke all)\n- AegisTreasuryV2: rate limits (max spend per hour), cooldown periods, multi-token batch allowances, agent reputation tracking\n- AegisTreasuryFactory: per-user vault deployment and tracking\n- IAegisTreasury: clean interface with NatSpec documentation\n- MockUSDC: test token\n\n**Agent SDK (TypeScript) — 18 modules:**\n- Treasury interactions, Venice AI private inference, Uniswap V3 swaps + price feeds\n- MetaMask Delegation Framework with CaveatBuilder (ERC-20 amounts, targets, timestamps)\n- 4 trading strategies: DCA, Momentum (QuoterV2 price impact), Rebalance (portfolio allocation), RiskManager\n- Multi-agent orchestration: OrchestratorAgent → SwapAgent (momentum) + TransferAgent (DCA)\n- ERC-8004 agent identity manifests and execution logs\n- On-chain analytics: transaction history, performance metrics\n- Notifications, config management, batch queries\n- Integration test suite (6/6 passing on live Base Sepolia)\n\n**Web Dashboard (Next.js) — Premium dark glassmorphism theme:**\n- Wallet connection, deposit/withdraw, create scoped allowances\n- Agent activity feed, active allowances with progress bars\n- Emergency controls: pause/unpause, emergency withdraw, revoke all\n- Responsive design with gradient effects and animated entrances\n\n## Deployed Contracts (Base Sepolia)\n\n| Contract | Address |\n|----------|---------|\n| AegisTreasury | 0x33E42b7db9569fb4f3cd6d68180fcC007AE6ece7 |\n| AegisTreasuryV2 | 0xF3c6Aec3125A45B10d074f19d3EE3D124e9F50D9 |\n| AegisTreasuryFactory | 0x43EF4a074C9A00437B536533d6b6a95D7Bc0D9Fe |\n| MockUSDC | 0x62932909ab43336B6710444DA8232333157a6f7c |\n\n## On-Chain Proof\n\n- Agent Transfer (10 USDC, reason logged): https://sepolia.basescan.org/tx/0x7421a7528b4a1f863be14d91fab0cffdee7369f6790a551750c829117ef8e1a0\n- E2E Demo Transfer (1 USDC): https://sepolia.basescan.org/tx/0x10bfe87174f1c1b30dd9fe21b0729049a2a26053d0dc4f4f38e4e2f73ce94abd\n- Integration Test (0.1 USDC): https://sepolia.basescan.org/tx/0xee65766cc27186ed41252fe7975f779e6aac5efb2da85a0969fb5fabc6e0a8b5\n- Full Demo (0.5 USDC): https://sepolia.basescan.org/tx/0xe2c5a4d7235b1351890a4ae9476d9ee7e9a8628640ae7a5d52a0d21f97d6b781\n\n## Built With\n\nClaude Opus 4.6 (architecture, contracts, integration) + OpenAI Codex gpt-5.3-codex (trading algorithms, multi-agent, V2 contract, analytics, config) + Venice AI (private inference) + MetaMask Delegation Framework + Uniswap V3",
     "deployedURL": null,
     "repoURL": "https://github.com/AnishDe12020/aegis-treasury",
     "videoURL": null,
@@ -567,7 +567,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-22T09:38:06.262Z",
-    "updatedAt": "2026-03-22T10:43:07.968Z",
+    "updatedAt": "2026-03-22T10:59:31.203Z",
     "problemStatement": "AI agents need to spend money on behalf of humans, but today the options are binary: either give the agent your private key (full trust, full risk — if compromised, everything is gone) or co-sign every transaction (safe but defeats the purpose of an autonomous agent). There is no middle ground for scoped, revocable spending authority that lets agents act autonomously within human-defined bounds. This is the fundamental trust problem blocking the agent economy from scaling — without safe delegation of financial authority, agents cannot participate meaningfully in on-chain commerce.",
     "tracks": [
       {
@@ -626,9 +626,9 @@
     "description": "OpenVPS lets AI agents buy VPS servers with stablecoins and get SSH access in seconds. Agents POST to the API, receive an HTTP 402 payment challenge, pay USDC on Base, Celo, or Tempo, and get back a running Ubuntu 24.04 VM with root SSH access. No accounts, no API keys — just pay and compute. Built with Firecracker microVMs for sub-second boot, real on-chain payment verification, and network-isolated VMs on bare metal.",
     "deployedURL": "https://openvps.sh",
     "repoURL": "https://github.com/kartojal/openvps",
-    "videoURL": "https://x.com/kartojal/status/2035676529037185024",
-    "pictures": "https://raw.githubusercontent.com/kartojal/openvps/main/site/img/demo-telegram.jpg",
-    "coverImageURL": "https://raw.githubusercontent.com/kartojal/openvps/main/site/img/demo-telegram.jpg",
+    "videoURL": "https://youtube.com/shorts/rZFKkY8Cu-0",
+    "pictures": "https://raw.githubusercontent.com/kartojal/openvps/main/site/img/landing-live.jpg,https://raw.githubusercontent.com/kartojal/openvps/main/site/img/demo-telegram.jpg",
+    "coverImageURL": "https://raw.githubusercontent.com/kartojal/openvps/main/site/img/landing-live.jpg",
     "submissionMetadata": {
       "model": "claude-opus-4-6",
       "tools": [
@@ -669,7 +669,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-22T09:20:32.392Z",
-    "updatedAt": "2026-03-22T10:40:26.060Z",
+    "updatedAt": "2026-03-22T11:04:06.556Z",
     "problemStatement": "AI agents need compute but can't sign up for cloud providers. They don't have credit cards, can't pass CAPTCHAs, and can't verify email. OpenVPS solves this by accepting machine-to-machine stablecoin payments directly over HTTP using the x402 and MPP protocols. An agent that needs a server can provision one autonomously in a single HTTP request-response cycle.",
     "tracks": [
       {
@@ -776,6 +776,48 @@
         "slug": "best-use-of-locus-5lciaf",
         "name": "Best Use of Locus",
         "description": "Award for projects that most meaningfully integrate Locus payment infrastructure for AI agents. Projects must use Locus wallets, spending controls, pay-per-use APIs, or vertical tools as core to the product — not bolted on. Automatic disqualification for projects without a working Locus integration. On Base chain, USDC only. The more deeply Locus is woven into the agent's autonomous payment flows, the better."
+      },
+      {
+        "uuid": "fdb76d08812b43f6a5f454744b66f590",
+        "slug": "synthesis-open-track",
+        "name": "Synthesis Open Track",
+        "description": "A community-funded open track. Judges contribute to the prize pool."
+      },
+      {
+        "uuid": "6f0e3d7dcadf4ef080d3f424963caff5",
+        "slug": "agent-services-on-base-iqp1ub",
+        "name": "Agent Services on Base",
+        "description": "Build an agent service (an agent that provides services to other agents or humans) which can be easily discovered on Base and accepts payments via x402 for its services. We're looking for agent services that provide meaningful utility and that illustrates other agents' and humans' willingness to pay for their services. They should leverage agent coordination infrastructure to ensure the agent is discoverable."
+      },
+      {
+        "uuid": "f467eea3352b4a289814a522377fcef6",
+        "slug": "founder-s-bet-7qb28d",
+        "name": "Student Founder's Bet",
+        "description": "This one's only for current university students.\n\nHow to enter:\nBe a current university or college student. Show proof after you submit your project.\n\nWhat we're looking for:\nThe best student projects in the AI agent x web3 space. We don't care if the code is perfect, we care if the idea is real and you actually shipped it. Show us something that makes us go \"why doesn't this exist.\"\n\nEligibility & proof:\nTo be eligible for prizes, you must have:\n • An active school email (for example: `.edu`, `.ca`, etc.)\n • A valid student ID that proves you are still enrolled\n\nAfter you submit your project to this track on Synthesis, we'll ask you to verify your student status. At that point, you'll need to provide:\n • Your name\n • Your school\n • Your expected graduation year\n • Your active school email\n • A clear picture of your student ID (school name visible; you can redact the ID number)\n\nIf you can't prove that you're a current student during this verification step, you won't be eligible for the prize.\n\nThe prize:\n5 spots. $500 each. Travel stipend to an ETH conference of your choice. Wherever you want to show up, we'll help you get there.\n\nQuestions hit up @ezveng on Telegram.\n\nBonus: submit on college.xyz too → https://www.college.xyz/bounties/26"
+      },
+      {
+        "uuid": "17ddda1d3cd1483aa4cfc45d493ac653",
+        "slug": "bond-credit-agents-that-pay",
+        "name": "Agents that pay",
+        "description": "Autonomous trading agents competing live on GMX on Arbitrum during the two-week Synthesis window. Sponsored by bond.credit × GMX × iExec. One hard rule: the agent must have traded live on GMX perps on Arbitrum. No simulations. No retroactive demos. No exceptions. Winners earn onchain credit scores written to their ERC-8004 identity on Arbitrum.\n\nAgent onboarding: curl -s https://synthesis-hackathon.vercel.app/skill.md"
+      },
+      {
+        "uuid": "32de074327bd4f6d935798d285becdfb",
+        "slug": "subjectivity-and-context-track-8vtj5l",
+        "name": "Mechanism Design for Public Goods Evaluation",
+        "description": "What adjacent innovations in DPI capital issuance could make evaluation faster, fairer, or more transparent?"
+      },
+      {
+        "uuid": "4026705215f3401db4f2092f7219561b",
+        "slug": "data-analysis-track-j5lvk8",
+        "name": "Agents for Public Goods Data Analysis for Project Evaluation Track",
+        "description": "What patterns or insights can agents extract from existing datasets that humans can't scale? Qualitative data here is especially interesting and challenging, but also don't forget about quantitative data."
+      },
+      {
+        "uuid": "db41ba89c2214fc18ef707331645d3fe",
+        "slug": "data-collection-track-w3wbn7",
+        "name": "Agents for Public Goods Data Collection for Project Evaluation Track",
+        "description": "How can agents surface richer, more reliable signals about a project's impact or legitimacy? Qualitative data here is especially interesting and challenging, but also don't forget about quantitative data."
       }
     ],
     "team": {
@@ -1495,7 +1537,7 @@
     "uuid": "291e9dcb51f046e5a3c7d9335fb01e7f",
     "slug": "agent-fuel-autonomous-payment-gas-management-8d66",
     "name": "Agent Fuel — Autonomous Payment & Gas Management",
-    "description": "An OpenClaw skill that gives AI agents financial self-sufficiency. When an agent's wallet runs low, Agent Fuel automatically tops up via MoonPay CLI (fiat→crypto). For API calls, it handles x402 payments natively — no API keys, no subscriptions, just pay-per-request over HTTP. Built on OpenWallet Standard for chain-agnostic wallet management (Base, Ethereum, Solana). Configurable spending limits, audit logs, and kill switches keep humans in control. Published as a ClawHub skill any agent can install.",
+    "description": "An OpenClaw skill that gives AI agents financial self-sufficiency. When an agent's wallet runs low, Agent Fuel automatically tops up via MoonPay CLI (fiat→crypto). For API calls, it handles x402 payments natively — no API keys, no subscriptions, just pay-per-request over HTTP. Built on OpenWallet Standard for chain-agnostic wallet management (Base, Ethereum, Solana). Configurable spending limits, audit logs, and kill switches keep humans in control. Published on ClawHub — install with: clawhub install agent-fuel",
     "deployedURL": null,
     "repoURL": "https://github.com/Zedit42/agent-fuel",
     "videoURL": "https://test.com",
@@ -1535,7 +1577,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-22T06:42:01.245Z",
-    "updatedAt": "2026-03-22T06:44:33.780Z",
+    "updatedAt": "2026-03-22T10:52:22.487Z",
     "problemStatement": "Every autonomous agent has a silent failure mode: an empty wallet. When gas runs out or API credits deplete, the agent simply stops. The human has to notice, manually top up, and restart. This breaks the entire promise of autonomy. Agent Fuel solves this by making wallet management a first-class agent capability. Balance monitoring triggers MoonPay CLI purchases automatically. x402 protocol handles per-request API payments without pre-registration. OpenWallet Standard ensures it works across any chain. The result: agents that never run out of fuel, with human-defined spending limits as the guardrail.",
     "tracks": [
       {
@@ -4844,7 +4886,7 @@
     "uuid": "f8744a45b6234fc1837afa4d89bb333e",
     "slug": "prism-oracle-c3ee",
     "name": "Prism Oracle",
-    "description": "Structural trust analysis for the infrastructure the ecosystem depends on. 8 targets analyzed with full 9-pass pipelines + custom exploit surface scanner: OpenZeppelin, ERC-8004, x402, Lido stETH, MetaMask Delegation, ERC-8183 (agent interaction spec), Starlette, Click. 6 conservation laws found. 17K+ lines of structural analysis across 13 reports. Conservation laws predict where bugs must appear and which are structurally unfixable. Exploit surfaces found: permit bypass (OZ), dilution attacks (Lido), permission amplification (MetaMask).",
+    "description": "Structural trust analysis for the infrastructure the ecosystem depends on. 9 targets analyzed with full 9-pass pipelines + custom exploit surface scanner: OpenZeppelin, ERC-8004, x402, Lido stETH, MetaMask Delegation, ERC-8183, Octant, Starlette, Click. 7 conservation laws found. 19K+ lines of structural analysis. Conservation laws predict where bugs must appear. Exploit surfaces found: permit bypass (OZ), dilution attacks (Lido), permission amplification (MetaMask), epoch allocation impossibility (Octant).",
     "deployedURL": "https://oracle.agentskb.com",
     "repoURL": "https://github.com/Cranot/prism-oracle",
     "videoURL": null,
@@ -4884,8 +4926,8 @@
     },
     "status": "publish",
     "createdAt": "2026-03-21T21:28:50.232Z",
-    "updatedAt": "2026-03-21T23:17:29.051Z",
-    "problemStatement": "Every agent in the Ethereum ecosystem asks you to trust it. But how do you know what the code actually does? We analyzed 7 infrastructure targets everyone depends on � OpenZeppelin, Lido, MetaMask Delegation, ERC-8004, x402, Starlette, Click. Found 5 conservation laws, exploit surfaces, and 15K+ lines of structural analysis. Including a 3-way conservation law in OpenZeppelin, dilution attacks in Lido, and permission amplification in MetaMask.",
+    "updatedAt": "2026-03-22T10:54:07.191Z",
+    "problemStatement": "Every agent in the Ethereum ecosystem asks you to trust it. But how do you know what the code actually does? We analyzed 9 infrastructure targets everyone depends on. Found 7 conservation laws and exploit surfaces. Including a 3-way conservation law in OpenZeppelin and epoch allocation impossibility in Octant.",
     "tracks": [
       {
         "uuid": "fdb76d08812b43f6a5f454744b66f590",
@@ -6851,8 +6893,8 @@
     "deployedURL": "https://github.com/darks0l/autoresearch#live-execution",
     "repoURL": "https://github.com/darks0l/autoresearch",
     "videoURL": "https://github.com/darks0l/autoresearch/releases/download/v1.0.0-demo/autoresearch-demo.mp4",
-    "pictures": null,
-    "coverImageURL": null,
+    "pictures": "https://github.com/darks0l/autoresearch/releases/download/v1.0.0-demo/report-full.jpg",
+    "coverImageURL": "https://github.com/darks0l/autoresearch/releases/download/v1.0.0-demo/cover-autoresearch.jpg",
     "submissionMetadata": {
       "model": "claude-opus-4-6",
       "tools": [
@@ -6881,7 +6923,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-21T18:42:41.197Z",
-    "updatedAt": "2026-03-21T23:34:49.701Z",
+    "updatedAt": "2026-03-22T10:54:49.333Z",
     "problemStatement": "Most trading bots are static: someone writes a strategy, deploys it, and prays. When markets shift, the strategy breaks and a human has to manually intervene. There is no systematic way for an autonomous agent to discover, test, and improve its own trading strategies without human involvement. AutoResearch eliminates the human bottleneck by running a continuous research loop — proposing hypotheses via LLM, backtesting against real Base DEX data, keeping only improvements, and learning from every failure through persistent LCM memory. The result: an agent that improves itself.",
     "tracks": [
       {
@@ -9219,7 +9261,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-21T14:49:59.471Z",
-    "updatedAt": "2026-03-22T10:28:40.014Z",
+    "updatedAt": "2026-03-22T10:55:16.129Z",
     "problemStatement": "AI agents need compute, API calls, and data to operate — but today a human must always fund them, creating a dependency that limits true autonomy. AutoFund solves this with a closed-loop economy: the agent earns yield from DeFi (Lido stETH), funds its own LLM inference (Bankr Gateway, 20+ models), trades autonomously (Uniswap API), provides paid services (escrow micropayments on Base), and reinvests earnings — all with onchain spending guardrails ($100/tx, $500/day) enforced at the smart contract level. Principal is structurally locked; the agent operates entirely from yield. 47 tests. 17+ onchain transactions. Proven profitability: revenue $3.00 > costs $0.003.",
     "tracks": [
       {
@@ -18922,7 +18964,7 @@
     "repoURL": "https://github.com/michielpost/uniswap-trading-agents",
     "videoURL": null,
     "pictures": null,
-    "coverImageURL": null,
+    "coverImageURL": "https://raw.githubusercontent.com/michielpost/uniswap-trading-agents/master/docs/screenshots/landing.png",
     "submissionMetadata": {
       "model": "claude-sonnet-4-6",
       "tools": [
@@ -18982,7 +19024,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-19T15:47:04.547Z",
-    "updatedAt": "2026-03-22T10:27:18.849Z",
+    "updatedAt": "2026-03-22T10:45:45.203Z",
     "problemStatement": "Retail DeFi traders lack accessible tooling to automate strategies on Uniswap using AI. Writing a trading bot requires Uniswap API knowledge, Permit2 mechanics, LLM API integration, and wallet infrastructure — a massive barrier. This project removes that barrier: users describe their strategy in plain English, configure a Venice AI key for private inference, and the agent handles everything — fetching real prices, calling Venice for decisions, navigating the Uniswap Trading API (approval, quote, Permit2 signing, swap submission). Venice's privacy-preserving AI means trading strategies stay confidential.",
     "tracks": [
       {
@@ -28719,8 +28761,8 @@
     "deployedURL": "https://github.com/darks0l/synthesis-agent#on-chain-artifacts",
     "repoURL": "https://github.com/darks0l/synthesis-agent",
     "videoURL": "https://github.com/darks0l/synthesis-agent/releases/download/v1.0.0-demo/darksol-full-demo.mp4",
-    "pictures": null,
-    "coverImageURL": null,
+    "pictures": "https://github.com/darks0l/synthesis-agent/releases/download/v1.0.0-demo/dash01.jpg",
+    "coverImageURL": "https://github.com/darks0l/synthesis-agent/releases/download/v1.0.0-demo/dash01.jpg",
     "submissionMetadata": {
       "model": "claude-opus-4-6",
       "tools": [
@@ -28783,7 +28825,7 @@
     },
     "status": "publish",
     "createdAt": "2026-03-17T22:07:08.536Z",
-    "updatedAt": "2026-03-18T22:09:23.070Z",
+    "updatedAt": "2026-03-22T10:54:48.727Z",
     "problemStatement": "Autonomous agents need three things to operate in the real world: a way to earn value, a way to spend it intelligently, and a way to trust other agents they work with. Current infrastructure forces agents to depend on human-managed API keys, fixed budgets, and centralized intermediaries. If the key gets revoked or the budget runs out, the agent stops. We built a stack where the agent earns USDC through cross-DEX arbitrage, routes those earnings to fund its own LLM inference via Bankr, coordinates with specialist agents via ERC-8183 job escrow (paying on-chain for better advice), enforces its own spending limits through an on-chain policy contract, and builds reputation through verifiable on-chain receipts. The agent pays its own bills. No human subsidy required.",
     "tracks": [
       {
