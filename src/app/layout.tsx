@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Sans, Space_Grotesk, Fraunces, Geist_Mono } from "next/font/google";
+import { Anton, Familjen_Grotesk, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const dmSans = DM_Sans({
+const anton = Anton({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-anton",
+  display: "swap",
+});
+
+const familjenGrotesk = Familjen_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-familjen",
   display: "swap",
 });
 
@@ -16,15 +23,9 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -55,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${spaceGrotesk.variable} ${fraunces.variable} ${geistMono.variable}`}
+      className={`${anton.variable} ${familjenGrotesk.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-bg-base text-text-primary font-body min-h-screen flex flex-col">
         <Header />

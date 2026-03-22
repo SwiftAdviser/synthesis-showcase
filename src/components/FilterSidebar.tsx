@@ -5,6 +5,7 @@ import type { FilterState, SortOption } from "@/lib/types";
 
 interface FilterOption {
   value: string;
+  label?: string;
   count: number;
 }
 
@@ -49,7 +50,7 @@ function FilterSection({
               className="accent-accent w-3.5 h-3.5 rounded"
             />
             <span className="text-text-secondary group-hover:text-text-primary transition-colors truncate flex-1 text-xs">
-              {opt.value}
+              {opt.label ?? opt.value}
             </span>
             <span className="text-[10px] font-mono text-text-dim">{opt.count}</span>
           </label>
@@ -91,7 +92,7 @@ export function FilterSidebar({
 
   return (
     <aside className="w-full lg:w-60 shrink-0">
-      <div className="glassmorphic rounded-xl p-4 divide-y divide-border sticky top-20">
+      <div className="glassmorphic rounded-xl p-4 divide-y divide-border sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto">
         <div className="pb-3 flex items-center justify-between">
           <span className="font-accent text-xs uppercase tracking-wider text-text-secondary">
             Filters

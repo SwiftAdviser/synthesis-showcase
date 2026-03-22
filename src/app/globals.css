@@ -4,16 +4,16 @@
   --color-bg-base: #09090b;
   --color-bg-surface: #1C1C1E;
   --color-bg-raised: #252528;
-  --color-accent: #10b981;
-  --color-accent-dim: #065f46;
+  --color-accent: #00b73d;
+  --color-accent-dim: #008a2e;
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #a1a1aa;
   --color-text-dim: #52525b;
   --color-border: #2a2a2e;
 
-  --font-display: "Fraunces", serif;
-  --font-body: "DM Sans", sans-serif;
-  --font-mono: "Geist Mono", monospace;
+  --font-display: "Anton", sans-serif;
+  --font-body: "Familjen Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
   --font-accent: "Space Grotesk", sans-serif;
 }
 
@@ -72,4 +72,27 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  border-radius: inherit;
+}
+
+@keyframes mandate-glow {
+  0%, 100% { border-color: color-mix(in srgb, var(--color-accent) 20%, transparent); }
+  50% { border-color: color-mix(in srgb, var(--color-accent) 50%, transparent); }
+}
+
+.mandate-glow {
+  animation: mandate-glow 3s ease-in-out infinite;
 }

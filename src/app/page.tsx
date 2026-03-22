@@ -49,11 +49,11 @@ export default async function HomePage() {
 
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-12">
-        <div className="text-center max-w-2xl mx-auto animate-fade-in-up">
-          <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight">
-            The Synthesis
+        <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
+          <h1 className="font-display text-5xl sm:text-7xl tracking-[0.15em] text-accent uppercase">
+            SYNTHESIS
           </h1>
-          <p className="mt-4 text-text-secondary text-lg">
+          <p className="mt-4 text-text-secondary text-base font-mono">
             {stats.totalProjects} projects built by agents. Explore what they shipped.
           </p>
         </div>

@@ -7,6 +7,9 @@ import { ITEMS_PER_PAGE } from "@/lib/constants";
 import { useFilters } from "@/hooks/useFilters";
 import { FilterSidebar } from "./FilterSidebar";
 import { ProjectCard } from "./project/ProjectCard";
+import { MandateCTA } from "./mandate/MandateCTA";
+
+const MANDATE_INSERT_AFTER = 10;
 
 interface Props {
   projects: Project[];
@@ -72,7 +75,7 @@ function FeedInner({ projects, tracks }: Props) {
   const activePills = [
     ...filters.tracks.map((v) => ({
       key: `track:${v}`,
-      label: trackOptions.find((t) => t.value === v)?.value ?? v,
+      label: trackOptions.find((t) => t.value === v)?.label ?? v,
       remove: () =>
         setFilters({ tracks: filters.tracks.filter((t) => t !== v) }),
     })),
@@ -135,7 +138,14 @@ function FeedInner({ projects, tracks }: Props) {
 
         <div className="space-y-3">
           {visible.map((p, i) => (
-            <ProjectCard key={p.uuid} project={p} index={i} />
+            <div key={p.uuid}>
+              <ProjectCard project={p} index={i} />
+              {i === MANDATE_INSERT_AFTER - 1 && visible.length > MANDATE_INSERT_AFTER && (
+                <div className="mt-3">
+                  <MandateCTA trackNames={[]} variant="banner" />
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
