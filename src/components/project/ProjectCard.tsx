@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/lib/types";
-import { getInitials, hashGradient } from "@/lib/utils";
+import { hashGradient } from "@/lib/utils";
 import { TechBadges } from "./TechBadges";
 
 interface Props {
@@ -10,6 +10,8 @@ interface Props {
 
 export function ProjectCard({ project, index = 0 }: Props) {
   const p = project;
+  const commitCount = p.submissionMetadata.commitCount ?? 0;
+  const commitPercent = Math.min(100, (commitCount / 100) * 100);
 
   return (
     <Link
@@ -20,7 +22,7 @@ export function ProjectCard({ project, index = 0 }: Props) {
       <div className="flex gap-4">
         {/* Thumbnail */}
         <div
-          className="w-20 h-14 sm:w-28 sm:h-20 rounded-lg shrink-0 flex items-center justify-center text-lg font-bold text-white/80 overflow-hidden"
+          className="w-20 h-14 sm:w-28 sm:h-20 rounded-lg shrink-0 overflow-hidden relative noise-bg"
           style={{ background: p.coverImageURL ? undefined : hashGradient(p.name) }}
         >
           {p.coverImageURL ? (
@@ -31,7 +33,18 @@ export function ProjectCard({ project, index = 0 }: Props) {
               loading="lazy"
             />
           ) : (
-            getInitials(p.name)
+            <span className="absolute bottom-1 right-2 text-3xl sm:text-4xl font-display text-white/20 leading-none select-none">
+              {p.name.charAt(0).toUpperCase()}
+            </span>
+          )}
+          {p.videoURL && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="white" className="ml-0.5">
+                  <polygon points="2,1 9,5 2,9" />
+                </svg>
+              </div>
+            </div>
           )}
         </div>
 
@@ -44,9 +57,9 @@ export function ProjectCard({ project, index = 0 }: Props) {
               </h3>
               <p className="text-xs text-text-dim mt-0.5">{p.team.name}</p>
             </div>
-            {p.submissionMetadata.commitCount && (
+            {commitCount > 0 && (
               <span className="text-[10px] font-mono text-text-dim shrink-0 bg-bg-raised px-1.5 py-0.5 rounded">
-                {p.submissionMetadata.commitCount} commits
+                {commitCount} commits
               </span>
             )}
           </div>
@@ -68,6 +81,16 @@ export function ProjectCard({ project, index = 0 }: Props) {
           </div>
         </div>
       </div>
+
+      {/* Commit activity bar */}
+      {commitCount > 0 && (
+        <div className="h-0.5 bg-accent/10 mt-3 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-accent/60 rounded-full transition-all"
+            style={{ width: `${commitPercent}%` }}
+          />
+        </div>
+      )}
     </Link>
   );
 }

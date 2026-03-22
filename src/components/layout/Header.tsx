@@ -1,22 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SearchBar } from "./SearchBar";
 
 export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
 
   return (
     <>
       <header className="sticky top-0 z-40 glassmorphic">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-              <span className="text-bg-base font-bold text-sm font-accent">M</span>
-            </div>
-            <span className="font-display text-lg tracking-tight">
-              Synthesis
+            <span className="font-display text-lg tracking-[0.15em] text-accent uppercase">
+              SYNTHESIS
             </span>
           </Link>
 
