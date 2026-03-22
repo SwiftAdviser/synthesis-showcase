@@ -6,8 +6,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-md bg-accent flex items-center justify-center">
-              <span className="text-bg-base font-bold text-xs font-accent">M</span>
+            <div className="w-7 h-7 rounded-md bg-bg-base border border-border flex items-center justify-center">
+              <span className="text-accent font-bold text-sm font-display">S</span>
             </div>
             <div>
               <p className="text-sm font-medium">Synthesis Showcase</p>
@@ -70,6 +70,9 @@ export function Footer() {
             alan@mandate.md
           </a>
         </div>
+        <p className="mt-3 text-[10px] text-text-dim">
+          Community-built website, for information purposes only.
+        </p>
       </div>
     </footer>
   );
