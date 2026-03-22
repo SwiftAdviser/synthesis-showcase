@@ -1,5 +1,5 @@
 import type { Project, Track, FilterState } from "./types";
-import { getReadinessScore } from "./preview-utils";
+import { getReadinessScore, hasVisuals } from "./preview-utils";
 
 export function slugify(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -105,6 +105,22 @@ export function getIntentionLabel(intention: string): string {
   }
 }
 
+const PINNED_SLUG = "mandate-approve-intent-not-just-transactions-c4cc";
+
+/** Sort projects: pinned first, then visuals, then by secondary criteria. */
+export function sortProjects(projects: Project[], secondary: (a: Project, b: Project) => number = () => 0): Project[] {
+  return [...projects].sort((a, b) => {
+    // Pinned project always first
+    if (a.slug === PINNED_SLUG) return -1;
+    if (b.slug === PINNED_SLUG) return 1;
+    // Visuals second
+    const aVis = hasVisuals(a) ? 1 : 0;
+    const bVis = hasVisuals(b) ? 1 : 0;
+    if (bVis !== aVis) return bVis - aVis;
+    return secondary(a, b);
+  });
+}
+
 export function filterProjects(
   projects: Project[],
   filters: FilterState
@@ -155,25 +171,20 @@ export function filterProjects(
     );
   }
 
-  switch (filters.sort) {
-    case "newest":
-      filtered.sort(
-        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
-      break;
-    case "commits":
-      filtered.sort(
-        (a, b) =>
-          (b.submissionMetadata.commitCount ?? 0) -
-          (a.submissionMetadata.commitCount ?? 0)
-      );
-      break;
-    case "alphabetical":
-      filtered.sort((a, b) => a.name.localeCompare(b.name));
-      break;
-  }
+  const secondary = (a: Project, b: Project) => {
+    switch (filters.sort) {
+      case "newest":
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      case "commits":
+        return (b.submissionMetadata.commitCount ?? 0) - (a.submissionMetadata.commitCount ?? 0);
+      case "alphabetical":
+        return a.name.localeCompare(b.name);
+      default:
+        return 0;
+    }
+  };
 
-  return filtered;
+  return sortProjects(filtered, secondary);
 }
 
 export function computeStats(projects: Project[]) {

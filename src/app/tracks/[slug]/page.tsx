@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { fetchAllProjects, fetchAllTracks } from "@/lib/api";
-import { getTrackPrizeTotal, formatNumber } from "@/lib/utils";
+import { getTrackPrizeTotal, formatNumber, sortProjects } from "@/lib/utils";
 import { SITE_URL } from "@/lib/constants";
 import { PrizeTable } from "@/components/track/PrizeTable";
 import { ProjectCard } from "@/components/project/ProjectCard";
@@ -47,8 +47,8 @@ export default async function TrackPage({
   const track = tracks.find((t) => t.slug === slug);
   if (!track) notFound();
 
-  const trackProjects = projects.filter((p) =>
-    p.tracks.some((t) => t.slug === slug)
+  const trackProjects = sortProjects(
+    projects.filter((p) => p.tracks.some((t) => t.slug === slug))
   );
   const prizeTotal = getTrackPrizeTotal(track);
 

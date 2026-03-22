@@ -49,9 +49,10 @@ export default function ScoringPage() {
           <span className="text-sm text-text-secondary ml-1">= 3/5 readiness</span>
         </div>
         <p className="text-sm text-text-secondary leading-relaxed">
-          Required fields carry <span className="text-accent font-mono">70%</span> of the score weight.
-          Recommended fields carry <span className="text-accent font-mono">30%</span>.
-          The raw score (0-1) is mapped to 1-5 dots.
+          Required fields carry <span className="text-accent font-mono">50%</span>,
+          visuals (video + images) carry <span className="text-accent font-mono">30%</span>,
+          recommended fields carry <span className="text-accent font-mono">20%</span>.
+          Projects with visuals are always shown first in the feed.
         </p>
       </div>
 
@@ -59,7 +60,7 @@ export default function ScoringPage() {
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-4">
           <h2 className="font-mono text-[11px] uppercase tracking-widest text-text-dim">
-            Required (70% weight)
+            Required (50% weight)
           </h2>
           <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-red-500/15 text-red-400 border border-red-500/30">
             {REQUIRED.length} fields
@@ -86,7 +87,7 @@ export default function ScoringPage() {
       <div className="mb-12">
         <div className="flex items-center gap-2 mb-4">
           <h2 className="font-mono text-[11px] uppercase tracking-widest text-text-dim">
-            Recommended (30% weight)
+            Recommended (20% weight)
           </h2>
           <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-amber-500/15 text-amber-400 border border-amber-500/30">
             {RECOMMENDED.length} fields
@@ -115,10 +116,10 @@ export default function ScoringPage() {
           Example
         </h3>
         <p className="text-sm text-text-secondary leading-relaxed">
-          A project with all 7 required fields but no recommended fields scores
-          <span className="text-accent font-mono"> 0.7 x 5 = 3.5 </span>
-          rounded to <span className="text-accent font-mono">4/5</span>.
-          Fill in all fields for a perfect <span className="text-accent font-mono">5/5</span>.
+          A project with all required fields + video + cover image but no recommended fields scores
+          <span className="text-accent font-mono"> (0.5 + 0.3) x 5 = 4/5</span>.
+          Add all recommended fields for a perfect <span className="text-accent font-mono">5/5</span>.
+          Without visuals, even a complete project maxes out at <span className="text-accent font-mono">3/5</span>.
         </p>
       </div>
     </div>
