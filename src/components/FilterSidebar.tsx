@@ -47,7 +47,7 @@ function FilterSection({
               type="checkbox"
               checked={selected.includes(opt.value)}
               onChange={() => onToggle(opt.value)}
-              className="accent-accent w-3.5 h-3.5 rounded"
+              className="custom-checkbox"
             />
             <span className="text-text-secondary group-hover:text-text-primary transition-colors truncate flex-1 text-xs">
               {opt.label ?? opt.value}
