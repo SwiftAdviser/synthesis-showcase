@@ -95,27 +95,34 @@ function ImageLightbox({
 export function ProjectHero({ name, videoURL, coverImageURL, picturesURL }: Props) {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
-  // Collect all images: cover first, then parsed pictures
-  const images: string[] = [];
-  if (coverImageURL) images.push(coverImageURL);
-  if (picturesURL) {
-    // pictures field can be comma-separated, newline-separated, or both
-    const urls = picturesURL
+  // Split a field that may contain comma-separated, newline-separated, or literal \n URLs
+  function parseImageURLs(raw: string): string[] {
+    return raw
+      .replace(/\\n/g, "\n") // literal \n to real newline
       .split(/[,\n]+/)
       .map((u) => u.trim())
       .filter((u) => {
         if (!u || !u.startsWith("http")) return false;
-        // Exclude obvious non-image URLs (html pages, docs, apps)
         if (/\.(html|htm)$/i.test(u)) return false;
         if (u.includes("vercel.app") && !u.match(/\.(png|jpg|jpeg|gif|webp|svg)/i)) return false;
         if (u.includes("gamma.app")) return false;
-        // Exclude file:// protocol
-        if (u.startsWith("file:")) return false;
         return true;
-      })
-      // Deduplicate against cover image
-      .filter((u) => u !== coverImageURL);
-    images.push(...urls);
+      });
+  }
+
+  // Collect all images: cover first, then parsed pictures
+  const seen = new Set<string>();
+  const images: string[] = [];
+
+  if (coverImageURL) {
+    for (const u of parseImageURLs(coverImageURL)) {
+      if (!seen.has(u)) { seen.add(u); images.push(u); }
+    }
+  }
+  if (picturesURL) {
+    for (const u of parseImageURLs(picturesURL)) {
+      if (!seen.has(u)) { seen.add(u); images.push(u); }
+    }
   }
 
   const hasVideo = !!videoURL;
