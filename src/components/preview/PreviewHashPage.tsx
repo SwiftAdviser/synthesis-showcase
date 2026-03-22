@@ -185,6 +185,7 @@ export function PreviewHashPage({ paramsPromise }: Props) {
             name={project.name}
             videoURL={project.videoURL}
             coverImageURL={project.coverImageURL}
+            picturesURL={project.pictures}
           />
 
           <div>
