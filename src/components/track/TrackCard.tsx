@@ -13,12 +13,12 @@ export function TrackCard({ track, projectCount }: Props) {
   return (
     <Link
       href={`/tracks/${track.slug}`}
-      className="block glassmorphic rounded-xl p-5 min-w-[280px] hover:glow-border transition-all duration-200 hover:-translate-y-0.5"
+      className="group block glassmorphic rounded-xl p-5 hover:glow-border transition-all duration-200 hover:-translate-y-0.5"
     >
-      <p className="text-[10px] font-mono uppercase tracking-widest text-accent mb-1">
+      <p className="text-[10px] font-mono uppercase tracking-widest text-accent mb-2">
         {track.company}
       </p>
-      <h3 className="font-semibold text-sm leading-snug line-clamp-2">
+      <h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover:text-accent transition-colors">
         {track.name}
       </h3>
       <div className="flex items-center gap-3 mt-3 text-xs text-text-dim">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getCTAForTracks } from "@/lib/constants";
 
 interface Props {
@@ -17,9 +18,13 @@ export function MandateCTA({ trackNames, variant = "sidebar" }: Props) {
             {/* Logo + Headline */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center shadow-[0_0_20px_rgba(0,183,61,0.4)]">
-                  <span className="text-bg-base font-bold text-base font-accent">M</span>
-                </div>
+                <Image
+                  src="/mandate-logo.png"
+                  alt="Mandate"
+                  width={40}
+                  height={40}
+                  className="rounded-xl shadow-[0_0_20px_rgba(0,183,61,0.4)]"
+                />
                 <span className="text-[11px] font-mono uppercase tracking-widest text-text-dim">
                   Mandate
                 </span>
@@ -62,9 +67,13 @@ export function MandateCTA({ trackNames, variant = "sidebar" }: Props) {
       <div className="absolute inset-0 bg-gradient-to-b from-bg-surface/80 via-accent/5 to-bg-surface/80" />
       <div className="relative p-5">
         <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center shadow-[0_0_16px_rgba(0,183,61,0.35)]">
-            <span className="text-bg-base font-bold text-xs font-accent">M</span>
-          </div>
+          <Image
+            src="/mandate-logo.png"
+            alt="Mandate"
+            width={32}
+            height={32}
+            className="rounded-lg shadow-[0_0_16px_rgba(0,183,61,0.35)]"
+          />
           <span className="text-[10px] font-mono uppercase tracking-widest text-text-dim">
             Mandate
           </span>

@@ -11,10 +11,10 @@
   --color-text-dim: #52525b;
   --color-border: #2a2a2e;
 
-  --font-display: "Anton", sans-serif;
-  --font-body: "Familjen Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-  --font-accent: "Space Grotesk", sans-serif;
+  --font-display: var(--font-anton), sans-serif;
+  --font-body: var(--font-familjen), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+  --font-accent: var(--font-space-grotesk), sans-serif;
 }
 
 html {

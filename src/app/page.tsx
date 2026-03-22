@@ -71,17 +71,16 @@ export default async function HomePage() {
         <ProjectFeed projects={projects} tracks={tracks} />
       </section>
 
-      {/* Track Leaderboard */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
-        <h2 className="font-display text-2xl font-bold mb-6">Tracks</h2>
-        <div className="flex gap-3 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x">
+      {/* Tracks */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+        <h2 className="font-display text-2xl font-bold mb-8">Tracks</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {sortedTracks.map((track) => (
-            <div key={track.uuid} className="snap-start">
-              <TrackCard
-                track={track}
-                projectCount={trackProjectCounts.get(track.slug) ?? 0}
-              />
-            </div>
+            <TrackCard
+              key={track.uuid}
+              track={track}
+              projectCount={trackProjectCounts.get(track.slug) ?? 0}
+            />
           ))}
         </div>
       </section>
