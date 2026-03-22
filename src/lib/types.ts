@@ -85,4 +85,5 @@ export interface FilterState {
   harnesses: string[];
   search: string;
   sort: SortOption;
+  minScore?: number;
 }
