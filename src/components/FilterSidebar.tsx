@@ -191,7 +191,7 @@ export function FilterSidebar({
           </svg>
         </button>
         {mobileOpen && (
-          <div className="glassmorphic rounded-xl p-4 mt-2">
+          <div className="glassmorphic rounded-xl p-4 mt-2 overflow-x-hidden hide-scrollbar">
             <div className="flex items-center justify-between mb-2">
               {hasFilters && (
                 <button
@@ -216,7 +216,7 @@ export function FilterSidebar({
       </div>
 
       {/* Desktop: always visible */}
-      <div className="hidden lg:block glassmorphic rounded-xl p-4 sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto">
+      <div className="hidden lg:block glassmorphic rounded-xl p-4 sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto overflow-x-hidden hide-scrollbar">
         <div className="pb-3 flex items-center justify-between">
           <span className="font-accent text-xs uppercase tracking-wider text-text-secondary">
             Filters

@@ -34,6 +34,16 @@ body {
   color: var(--color-bg-base);
 }
 
+/* Hide scrollbars but keep scroll functionality (Windows fix) */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
