@@ -125,3 +125,24 @@ export function getReadinessChecklist(project: Project): ChecklistItem[] {
 
   return items;
 }
+
+/**
+ * Compute a 1-5 star readiness score.
+ * Required items (7) are worth more than recommended (5).
+ * Required: 70% weight, Recommended: 30% weight.
+ */
+export function getReadinessScore(project: Project): number {
+  const checklist = getReadinessChecklist(project);
+  const required = checklist.filter((c) => !c.detail);
+  const recommended = checklist.filter((c) => !!c.detail);
+
+  const requiredPassed = required.filter((c) => c.status === "pass").length;
+  const recommendedPassed = recommended.filter((c) => c.status === "pass").length;
+
+  const score =
+    (requiredPassed / required.length) * 0.7 +
+    (recommendedPassed / recommended.length) * 0.3;
+
+  // Map 0-1 to 1-5 stars (minimum 1 star)
+  return Math.max(1, Math.round(score * 5));
+}

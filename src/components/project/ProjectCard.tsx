@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project } from "@/lib/types";
 import { hashGradient } from "@/lib/utils";
+import { getReadinessScore } from "@/lib/preview-utils";
 import { TechBadges } from "./TechBadges";
 
 interface Props {
@@ -8,10 +9,38 @@ interface Props {
   index?: number;
 }
 
+function ReadinessStars({ score }: { score: number }) {
+  return (
+    <div className="group/stars relative inline-flex items-center gap-px cursor-help">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <svg
+          key={i}
+          width="10"
+          height="10"
+          viewBox="0 0 24 24"
+          fill={i <= score ? "currentColor" : "none"}
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className={i <= score ? "text-accent" : "text-text-dim/40"}
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      ))}
+      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 rounded-lg bg-bg-base border border-border text-[10px] text-text-secondary whitespace-nowrap opacity-0 pointer-events-none group-hover/stars:opacity-100 transition-opacity duration-200 z-10 shadow-lg">
+        <span className="text-text-primary font-medium">{score}/5</span> submission readiness
+        <br />
+        <span className="text-text-dim">Based on completeness of required fields</span>
+        <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-border" />
+      </div>
+    </div>
+  );
+}
+
 export function ProjectCard({ project, index = 0 }: Props) {
   const p = project;
   const commitCount = p.submissionMetadata.commitCount ?? 0;
   const commitPercent = Math.min(100, (commitCount / 100) * 100);
+  const score = getReadinessScore(p);
 
   return (
     <Link
@@ -57,11 +86,14 @@ export function ProjectCard({ project, index = 0 }: Props) {
               </h3>
               <p className="text-xs text-text-dim mt-0.5">{p.team.name}</p>
             </div>
-            {commitCount > 0 && (
-              <span className="text-[10px] font-mono text-text-dim shrink-0 bg-bg-raised px-1.5 py-0.5 rounded">
-                {commitCount} commits
-              </span>
-            )}
+            <div className="flex items-center gap-2 shrink-0">
+              <ReadinessStars score={score} />
+              {commitCount > 0 && (
+                <span className="text-[10px] font-mono text-text-dim bg-bg-raised px-1.5 py-0.5 rounded">
+                  {commitCount}
+                </span>
+              )}
+            </div>
           </div>
 
           <p className="text-xs text-text-secondary mt-1.5 line-clamp-2 leading-relaxed">
