@@ -24,18 +24,14 @@ interface CatalogResponse {
   };
 }
 
-// Strip control characters (0x00-0x1F except tab/newline/cr) from all strings
-function sanitize(obj: unknown): unknown {
-  if (typeof obj === "string") {
-    return obj.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "");
-  }
-  if (Array.isArray(obj)) return obj.map(sanitize);
-  if (obj && typeof obj === "object") {
-    const out: Record<string, unknown> = {};
-    for (const [k, v] of Object.entries(obj)) out[k] = sanitize(v);
-    return out;
-  }
-  return obj;
+// Fetch JSON safely: get text, strip control chars, then parse
+async function safeFetchJSON<T>(url: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(url, init);
+  if (!res.ok) throw new Error(`API error ${res.status}: ${url}`);
+  let text = await res.text();
+  // Strip control characters that break JSON.parse (0x00-0x1F except tab/lf/cr)
+  text = text.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "");
+  return JSON.parse(text) as T;
 }
 
 export async function fetchAllProjects(): Promise<Project[]> {
@@ -44,17 +40,16 @@ export async function fetchAllProjects(): Promise<Project[]> {
   const limit = 50;
 
   while (true) {
-    const res = await fetch(`${BASE_URL}/projects?page=${page}&limit=${limit}`, {
-      next: { revalidate: 1800 },
-    });
-    if (!res.ok) throw new Error(`Projects API error: ${res.status}`);
-    const data: ProjectsResponse = await res.json();
+    const data = await safeFetchJSON<ProjectsResponse>(
+      `${BASE_URL}/projects?page=${page}&limit=${limit}`,
+      { next: { revalidate: 1800 } }
+    );
     all.push(...data.data);
     if (page >= data.pagination.totalPages) break;
     page++;
   }
 
-  return (sanitize(all) as Project[]).filter((p) => p.status === "publish");
+  return all.filter((p) => p.status === "publish");
 }
 
 export async function fetchAllTracks(): Promise<Track[]> {
@@ -63,11 +58,10 @@ export async function fetchAllTracks(): Promise<Track[]> {
   const limit = 50;
 
   while (true) {
-    const res = await fetch(`${BASE_URL}/catalog?page=${page}&limit=${limit}`, {
-      next: { revalidate: 1800 },
-    });
-    if (!res.ok) throw new Error(`Catalog API error: ${res.status}`);
-    const data: CatalogResponse = await res.json();
+    const data = await safeFetchJSON<CatalogResponse>(
+      `${BASE_URL}/catalog?page=${page}&limit=${limit}`,
+      { next: { revalidate: 1800 } }
+    );
     all.push(...data.items);
     if (!data.pagination.hasNextPage) break;
     page++;
