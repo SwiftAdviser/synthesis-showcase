@@ -84,13 +84,6 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* Description */}
-          <div className="prose prose-invert max-w-none">
-            <p className="text-text-secondary leading-relaxed whitespace-pre-line">
-              {project.description}
-            </p>
-          </div>
-
           {/* Problem Statement */}
           {project.problemStatement && (
             <div className="border-l-2 border-accent pl-5">
@@ -102,6 +95,13 @@ export default async function ProjectPage({
               </p>
             </div>
           )}
+
+          {/* Description */}
+          <div className="prose prose-invert max-w-none">
+            <p className="text-text-secondary leading-relaxed whitespace-pre-line">
+              {project.description}
+            </p>
+          </div>
 
           {/* Build Timeline */}
           <BuildTimeline metadata={meta} />
