@@ -10,7 +10,6 @@ import { BuildTimeline } from "@/components/project/BuildTimeline";
 import { TeamSpotlight } from "@/components/project/TeamSpotlight";
 import { ProjectLinks } from "@/components/project/ProjectLinks";
 import { MandateCTA } from "@/components/mandate/MandateCTA";
-
 import { ReadinessChecklist } from "@/components/project/ReadinessChecklist";
 import { getReadinessChecklist } from "@/lib/preview-utils";
 
@@ -125,6 +124,29 @@ export default async function ProjectPage({
             deployedURL={project.deployedURL}
             videoURL={project.videoURL}
           />
+
+          {/* Share on X */}
+          <a
+            href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${project.name} - built during @synthesis_md hackathon\n\n${project.description.slice(0, 120)}${project.description.length > 120 ? "..." : ""}`)}&url=${encodeURIComponent(`${SITE_URL}/projects/${project.slug}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block glassmorphic rounded-xl p-4 hover:border-accent/30 transition-all"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-text-primary flex items-center justify-center shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-bg-base)">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium group-hover:text-accent transition-colors">Share on X</p>
+                <p className="text-[10px] text-text-dim">Tell the world about this project</p>
+              </div>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-text-dim group-hover:text-accent transition-colors shrink-0">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </div>
+          </a>
 
           {/* Tracks */}
           {project.tracks.length > 0 && (
