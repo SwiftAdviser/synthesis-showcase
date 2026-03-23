@@ -24,6 +24,20 @@ interface CatalogResponse {
   };
 }
 
+// Strip control characters (0x00-0x1F except tab/newline/cr) from all strings
+function sanitize(obj: unknown): unknown {
+  if (typeof obj === "string") {
+    return obj.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "");
+  }
+  if (Array.isArray(obj)) return obj.map(sanitize);
+  if (obj && typeof obj === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(obj)) out[k] = sanitize(v);
+    return out;
+  }
+  return obj;
+}
+
 export async function fetchAllProjects(): Promise<Project[]> {
   const all: Project[] = [];
   let page = 1;
@@ -40,7 +54,7 @@ export async function fetchAllProjects(): Promise<Project[]> {
     page++;
   }
 
-  return all.filter((p) => p.status === "publish");
+  return (sanitize(all) as Project[]).filter((p) => p.status === "publish");
 }
 
 export async function fetchAllTracks(): Promise<Track[]> {
